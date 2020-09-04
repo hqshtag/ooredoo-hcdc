@@ -1,0 +1,10 @@
+nav.navbar {
+    background: $mainGray;
+    display: flex;
+    align-items: center;
+    height: 70px;
+    width: 100vw;
+    svg {
+        margin: 0px 50px;
+    }
+}

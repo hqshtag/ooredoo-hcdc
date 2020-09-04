@@ -8,6 +8,7 @@ app
   .use(bodyParser.urlencoded({ extended: true }))
   .use(bodyParser.json())
   .use(express.static("./public"))
+  .use('styles', express.static("./public/styles"))
   //.set("views", path.join(__dirname, "./public/views"))
   .set("view engine", "ejs");
 
