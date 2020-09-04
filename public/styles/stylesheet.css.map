@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,CAAC,CAAC;EACE,OAAO,EAAE,GAAG;EACZ,MAAM,EAAE,GAAG;CACd",
+    "sources": [
+        "stylesheet.scss",
+        "partials/_navbar.scss"
+    ],
+    "names": [],
+    "file": "stylesheet.css"
+}
