@@ -27,7 +27,8 @@ exports.login = async (req, res) => {
     const token = jwt.sign(payload, secret, signOptions);
     res.json({
         status: "Success",
-        "auth-token": token
+        "auth-token": token,
+        payload,
     })
 
     // res.send('success');

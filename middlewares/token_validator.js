@@ -14,6 +14,7 @@ const verifyToken = (req, res, next) => {
             const verified = jwt.verify(token, process.env.SECRET || "SECRET42");
             // console.log(verified);
             res.locals.tokenPayload = verified;
+            res.locals.token = token;
             next();
         } catch (err) {
             res.status(400).json({ message: "Invalid Token" })

@@ -1,0 +1,24 @@
+@import "colors";
+@import "lib";
+
+@import "./partials/navbar";
+@import "./partials/footer";
+@import "./partials/usermenu";
+@import "./partials/tabs";
+
+@import "./pages/index";
+@import "./pages/users";
+
+@import "./forms/auth_form";
+@import "./forms/add_user";
+
+* {
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+div.app {
+  display: flex;
+}

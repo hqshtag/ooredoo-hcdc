@@ -5,6 +5,10 @@ const { verifyToken, verifySuperAdmin } = require("../middlewares/token_validato
 
 router.get("/", verifySuperAdmin, controller.getAllUsers);
 router.post("/login", verifyUserExistance, controller.login);
+router.get("/check", verifyToken, (req, res) => {
+    return res.status(200).json({ token: res.locals.token, payload: res.locals.tokenPayload })
+})
+
 router.post("/create", verifySuperAdmin, verifyUniqueUsername, controller.createUser);
 
 //router.post("/secret/super_admin/signup", controller.createSuperAdmin);

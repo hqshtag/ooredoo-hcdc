@@ -1,0 +1,26 @@
+form.user-login {
+  width: 600px;
+  height: 270px;
+  background-color: #fff;
+
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  button {
+    margin: 0 40px -20px;
+  }
+  input {
+    margin: 10px;
+  }
+}
+
+form.user-logout {
+  height: 100%;
+  width: 27%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,74 @@
+.btn {
+  cursor: pointer;
+
+  width: 150px;
+  height: 42px;
+  border: none;
+  border-radius: 9px;
+  font-size: 24px;
+  color: white;
+  background-color: lighten($vividRed, 5);
+
+  transition: transform 197ms ease;
+  &:hover {
+    background-color: $vividRed;
+  }
+  &:active {
+    outline: none;
+    transform: scale(0.97);
+  }
+  &:focus {
+    outline: none;
+  }
+  &.medium {
+    width: 120px;
+    height: 36px;
+    font-size: 18px;
+    margin: 20px;
+  }
+  &.lime {
+    background-color: $lime;
+  }
+}
+
+.icon-btn {
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-radius: 7px;
+  transition: all 420ms ease-in-out;
+
+  &:hover {
+    background-color: $vividRed;
+    cursor: pointer;
+  }
+  &:active {
+    outline: none;
+    transform: scale(0.97);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+input.form-input {
+  width: 300px;
+  height: 36px;
+  border-radius: 12px;
+  padding: 3px 20px;
+  border: 1px solid #969696;
+
+  &.medium {
+    width: 180px;
+    height: 27px;
+    border-radius: 7px;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: darken(#969696, 2);
+  }
+}

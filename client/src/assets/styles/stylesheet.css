@@ -1,0 +1,353 @@
+.btn {
+  cursor: pointer;
+  width: 150px;
+  height: 42px;
+  border: none;
+  border-radius: 9px;
+  font-size: 24px;
+  color: white;
+  background-color: #e34149;
+  -webkit-transition: -webkit-transform 197ms ease;
+  transition: -webkit-transform 197ms ease;
+  transition: transform 197ms ease;
+  transition: transform 197ms ease, -webkit-transform 197ms ease;
+}
+
+.btn:hover {
+  background-color: #e02b34;
+}
+
+.btn:active {
+  outline: none;
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn.medium {
+  width: 120px;
+  height: 36px;
+  font-size: 18px;
+  margin: 20px;
+}
+
+.btn.lime {
+  background-color: #8dd40e;
+}
+
+.icon-btn {
+  padding: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  border-radius: 7px;
+  -webkit-transition: all 420ms ease-in-out;
+  transition: all 420ms ease-in-out;
+}
+
+.icon-btn:hover {
+  background-color: #e02b34;
+  cursor: pointer;
+}
+
+.icon-btn:active {
+  outline: none;
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
+.icon-btn:focus {
+  outline: none;
+}
+
+input.form-input {
+  width: 300px;
+  height: 36px;
+  border-radius: 12px;
+  padding: 3px 20px;
+  border: 1px solid #969696;
+}
+
+input.form-input.medium {
+  width: 180px;
+  height: 27px;
+  border-radius: 7px;
+}
+
+input.form-input:focus {
+  outline: none;
+  border-color: #919191;
+}
+
+nav.navbar {
+  background: #eaeaea;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 70px;
+  width: 100vw;
+}
+
+nav.navbar svg {
+  margin: 0px 50px;
+}
+
+footer {
+  background: #eaeaea;
+  height: 70px;
+  width: 100%;
+}
+
+div.user-menu {
+  background-color: #535353;
+  width: 333px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+div.user-menu h4,
+div.user-menu h5 {
+  color: white;
+  font-weight: 400;
+}
+
+div.user-menu .user-menu-btn {
+  width: 80%;
+  padding: 27px 30px;
+  margin: 19px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.tabs-container .tab {
+  display: none;
+}
+
+.tabs-container .tab.active {
+  display: unset;
+}
+
+div.main-container {
+  width: 100vw;
+  height: 81vh;
+  background: linear-gradient(358.92deg, #ffffff -5.54%, #e81818 36.28%, #9b1818 90.83%), #e81818;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.users-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.users-page form {
+  margin: 50px;
+}
+
+div.users-page div.users-list {
+  background: #f3f2f2;
+  border-radius: 12px;
+  width: 300px;
+  height: 500px;
+  padding: 7px 10px;
+  overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.users-page div.users-list div.user-card {
+  background: white;
+  position: relative;
+  width: 270px;
+  min-height: 40px;
+  max-height: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 9px;
+  margin: 9px;
+  padding: 5px;
+  -webkit-transition: all 270ms ease-out;
+  transition: all 270ms ease-out;
+}
+
+div.users-page div.users-list div.user-card:hover {
+  -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+div.users-page div.users-list div.user-card .icon-btn {
+  position: absolute;
+  bottom: 7px;
+  right: 5px;
+}
+
+div.users-page div.users-list div.user-card span.username-output {
+  width: 220px;
+  padding: 3px 7px;
+  border-radius: 12px;
+  border: 1px solid #eaeaea;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.users-page div.users-list div.user-card span.username-output svg {
+  border-right: 1px solid #eaeaea;
+  margin-right: 10px;
+  padding-right: 10px;
+}
+
+div.users-page div.users-list div.user-card span.id-output {
+  color: #ccc;
+  font-size: 12px;
+  margin: 2px auto;
+}
+
+form.user-login {
+  width: 600px;
+  height: 270px;
+  background-color: #fff;
+  border-radius: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form.user-login button {
+  margin: 0 40px -20px;
+}
+
+form.user-login input {
+  margin: 10px;
+}
+
+form.user-logout {
+  height: 100%;
+  width: 27%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form.add_user {
+  width: 390px;
+  height: 240px;
+  padding: 12px;
+  border-radius: 12px;
+  background-color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+form.add_user input {
+  margin: 20px;
+}
+
+form.add_user button {
+  margin-left: 25px;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+}
+
+div.app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+/*# sourceMappingURL=stylesheet.css.map */
