@@ -40,11 +40,55 @@
   border: none;
   border-radius: 7px;
   transition: all 420ms ease-in-out;
-
-  &:hover {
-    background-color: $vividRed;
-    cursor: pointer;
+  svg {
+    transition: all 420ms ease-in-out;
   }
+  // background: $dark;
+  &.red {
+    &:hover {
+      background-color: $vividRed;
+      cursor: pointer;
+    }
+  }
+
+  &.reverse {
+    svg {
+      fill: $dark;
+    }
+    &:hover {
+      background-color: $vividRed;
+      cursor: pointer;
+      svg {
+        fill: white;
+      }
+    }
+  }
+
+  &.blue {
+    svg {
+      fill: $dark;
+    }
+    &:hover {
+      background-color: $blue;
+      cursor: pointer;
+      svg {
+        fill: white;
+      }
+    }
+  }
+  &.green {
+    svg {
+      fill: $dark;
+    }
+    &:hover {
+      background-color: $green;
+      cursor: pointer;
+      svg {
+        fill: white;
+      }
+    }
+  }
+
   &:active {
     outline: none;
     transform: scale(0.97);

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import AddUser from "../forms/AddUser";
-import ViewUsers from "../partials/ViewUsers";
+import AddUser from "./forms/AddUser";
+import ViewUsers from "./partials/ViewUsers";
 import { useSelector, useDispatch } from "react-redux";
-import { getAll, removeUser } from "../../redux/users/usersSlice";
-import { tokenSelector } from "../../redux/auth/authSlice";
+import { getAll, removeUser } from "../../../redux/slices/usersSlice";
+import { tokenSelector } from "../../../redux/slices/authSlice";
 
 const Users = () => {
   const token = useSelector(tokenSelector);

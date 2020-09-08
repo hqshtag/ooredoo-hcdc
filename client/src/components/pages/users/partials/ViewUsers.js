@@ -1,7 +1,7 @@
 import React from "react";
 import UserCard from "./UserCard";
 import { useSelector } from "react-redux";
-import { usersSelector } from "../../redux/users/usersSlice";
+import { usersSelector } from "../../../../redux/slices/usersSlice";
 
 const ViewUsers = ({ handleRemove }) => {
   const users = useSelector(usersSelector);

@@ -55,9 +55,53 @@
   transition: all 420ms ease-in-out;
 }
 
-.icon-btn:hover {
+.icon-btn svg {
+  -webkit-transition: all 420ms ease-in-out;
+  transition: all 420ms ease-in-out;
+}
+
+.icon-btn.red:hover {
   background-color: #e02b34;
   cursor: pointer;
+}
+
+.icon-btn.reverse svg {
+  fill: #535353;
+}
+
+.icon-btn.reverse:hover {
+  background-color: #e02b34;
+  cursor: pointer;
+}
+
+.icon-btn.reverse:hover svg {
+  fill: white;
+}
+
+.icon-btn.blue svg {
+  fill: #535353;
+}
+
+.icon-btn.blue:hover {
+  background-color: #2553b1;
+  cursor: pointer;
+}
+
+.icon-btn.blue:hover svg {
+  fill: white;
+}
+
+.icon-btn.green svg {
+  fill: #535353;
+}
+
+.icon-btn.green:hover {
+  background-color: #50e538;
+  cursor: pointer;
+}
+
+.icon-btn.green:hover svg {
+  fill: white;
 }
 
 .icon-btn:active {
@@ -198,17 +242,17 @@ div.users-page div.users-list {
   width: 300px;
   height: 500px;
   padding: 7px 10px;
+  padding-top: 0;
   overflow-y: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+}
+
+div.users-page div.users-list h3 {
+  position: fixed;
+  z-index: 13;
+  background: #f3f2f2;
+  width: 289px;
+  border-top-left-radius: 12px;
+  height: 24px;
 }
 
 div.users-page div.users-list div.user-card {
@@ -229,6 +273,10 @@ div.users-page div.users-list div.user-card {
   padding: 5px;
   -webkit-transition: all 270ms ease-out;
   transition: all 270ms ease-out;
+}
+
+div.users-page div.users-list div.user-card:first-of-type {
+  margin-top: 30px;
 }
 
 div.users-page div.users-list div.user-card:hover {
@@ -265,6 +313,113 @@ div.users-page div.users-list div.user-card span.id-output {
   color: #ccc;
   font-size: 12px;
   margin: 2px auto;
+}
+
+div.nodes-page .nodes-view {
+  position: relative;
+  height: 500px;
+  overflow-y: auto;
+  width: 940px;
+  background: white;
+  padding: 20px 10px;
+  border-radius: 15px;
+}
+
+div.nodes-page .nodes-view input.search-field {
+  width: 42%;
+  height: 27px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #c5c5c5;
+  padding: 0px 20px;
+  margin: 10px auto;
+  float: right;
+}
+
+div.nodes-page .nodes-view input.search-field:focus {
+  outline: none;
+  border: 2px solid #c5c5c5;
+}
+
+div.nodes-page .nodes-view h4 {
+  position: absolute;
+  top: 50%;
+  right: 42%;
+  color: #535353;
+}
+
+div.nodes-page .nodes-view .node-card {
+  position: relative;
+  background: #ededed;
+  width: 920px;
+  height: 66px;
+  margin: 5px;
+  border-radius: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #f17070;
+  -webkit-transition: background 100ms ease-out;
+  transition: background 100ms ease-out;
+}
+
+div.nodes-page .nodes-view .node-card:hover {
+  background: #f49595;
+}
+
+div.nodes-page .nodes-view .node-card label.node-label {
+  color: white;
+  font-size: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 3px;
+  padding: 3px 7px;
+}
+
+div.nodes-page .nodes-view .node-card label.node-label span,
+div.nodes-page .nodes-view .node-card label.node-label input {
+  font-size: 14px;
+  color: white;
+  background: #535353;
+  margin: 2px;
+  min-width: 120px;
+  max-width: 220px;
+  height: 16px;
+  padding: 3px 7px;
+  border-radius: 5px;
+  border: none;
+}
+
+div.nodes-page .nodes-view .node-card label.node-label span.reverse,
+div.nodes-page .nodes-view .node-card label.node-label input.reverse {
+  color: black;
+  background: white;
+}
+
+div.nodes-page .nodes-view .node-card .buttons {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  right: 2px;
+  top: 0;
+}
+
+div.nodes-page .nodes-view .node-card .buttons button {
+  margin: 0px 2px;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
 }
 
 form.user-login {

@@ -1,0 +1,88 @@
+div.nodes-page {
+  .nodes-view {
+    position: relative;
+    height: 500px;
+    // min-height: 800px;
+    overflow-y: auto;
+    width: 940px;
+    background: white;
+    padding: 20px 10px;
+    border-radius: 15px;
+
+    input.search-field {
+      width: 42%;
+      height: 27px;
+      font-size: 14px;
+      border-radius: 10px;
+      border: 1px solid $c5Gray;
+      padding: 0px 20px;
+      margin: 10px auto;
+      float: right;
+      &:focus {
+        outline: none;
+        border: 2px solid $c5Gray;
+      }
+    }
+    h4 {
+      position: absolute;
+      top: 50%;
+      right: 42%;
+      color: $dark;
+    }
+    .node-card {
+      position: relative;
+      background: $edGray;
+      width: 920px;
+      height: 66px;
+      margin: 5px;
+      border-radius: 7px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: lighten(#e81818, 19);
+      transition: background 100ms ease-out;
+      &:hover {
+        background: lighten(#e81818, 27);
+        //box-shadow: 0 4px 9px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+      }
+      label.node-label {
+        //background: pink;
+        color: white;
+        font-size: 12px;
+        display: flex;
+        flex-direction: column;
+        margin: 3px;
+        padding: 3px 7px;
+
+        span,
+        input {
+          font-size: 14px;
+          color: white;
+          background: $dark;
+          margin: 2px;
+          min-width: 120px;
+          max-width: 220px;
+          height: 16px;
+          padding: 3px 7px;
+          border-radius: 5px;
+          border: none;
+          &.reverse {
+            color: black;
+            background: white;
+          }
+        }
+      }
+      .buttons {
+        position: absolute;
+        display: flex;
+        right: 2px;
+        top: 0;
+        button {
+          margin: 0px 2px;
+          border-top-right-radius: 0;
+          border-top-left-radius: 0;
+        }
+      }
+    }
+  }
+}

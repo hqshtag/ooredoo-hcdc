@@ -6,7 +6,7 @@ import Login from "./components/forms/Login";
 import Dashboard from "./components/Dashboard";
 import "./assets/styles/stylesheet.css";
 import { useSelector, useDispatch } from "react-redux";
-import { isLoggedInSelector, checkToken } from "./redux/auth/authSlice";
+import { isLoggedInSelector, checkToken } from "./redux/slices/authSlice";
 import Usermenu from "./components/layout/Usermenu";
 
 function App() {

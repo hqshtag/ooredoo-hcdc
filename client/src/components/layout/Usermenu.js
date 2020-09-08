@@ -5,7 +5,7 @@ import { ReactComponent as Errors } from "../../assets/icons/errors.svg";
 import { ReactComponent as Interfaces } from "../../assets/icons/interfaces.svg";
 import { ReactComponent as Users } from "../../assets/icons/users.svg";
 import { useSelector } from "react-redux";
-import { currentUserSelector } from "../../redux/auth/authSlice";
+import { currentUserSelector } from "../../redux/slices/authSlice";
 
 const Usermenu = ({ handleMenuNavigation }) => {
   const currentUser = useSelector(currentUserSelector);

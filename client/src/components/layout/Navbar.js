@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as Logo } from "../../assets/icons/ooredoo_logo.svg";
 import { useDispatch } from "react-redux";
-import { logout } from "../../redux/auth/authSlice";
+import { logout } from "../../redux/slices/authSlice";
 
 const Navbar = ({ loggedIn, resetMenu }) => {
   const dispatch = useDispatch();

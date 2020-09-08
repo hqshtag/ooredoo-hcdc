@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as User } from "../../assets/icons/user.svg";
-import { ReactComponent as Remove } from "../../assets/icons/close.svg";
+import { ReactComponent as User } from "../../../../assets/icons/user.svg";
+import { ReactComponent as Remove } from "../../../../assets/icons/close.svg";
 //import { ReactComponent as Edit } from "../../assets/icons/edit.svg";
 
 const UserCard = ({ user, handleRemove }) => {

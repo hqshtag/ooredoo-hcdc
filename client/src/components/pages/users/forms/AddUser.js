@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, getAll } from "../../redux/users/usersSlice";
-import { tokenSelector } from "../../redux/auth/authSlice";
+import { addUser, getAll } from "../../../../redux/slices/usersSlice";
+import { tokenSelector } from "../../../../redux/slices/authSlice";
 
 const AddUser = () => {
   const token = useSelector(tokenSelector);
