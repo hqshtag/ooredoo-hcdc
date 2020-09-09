@@ -8,9 +8,10 @@ import { getAll as getAllUsers } from "../redux/slices/usersSlice";
 import { getAll as getAllF5 } from "../redux/slices/f5Slice";
 import { getAll as getAllNodes } from "../redux/slices/nodeSlice";
 import { getAll as getAllInterfaces } from "../redux/slices/interfaceSlice";
+import Loadbalancer from "./pages/loadbalancer/Loadbalancer";
 
 const Dashboard = ({ activeMenu, token }) => {
-  const { nodes, interfaces, errors, users } = activeMenu;
+  const { nodes, interfaces, errors, loadbalancer, users } = activeMenu;
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,6 +22,7 @@ const Dashboard = ({ activeMenu, token }) => {
   }, [dispatch, token]);
   return (
     <>
+      {loadbalancer && <Loadbalancer />}
       {nodes && <Nodes />}
       {interfaces && <Interfaces />}
       {errors && <Errors />}

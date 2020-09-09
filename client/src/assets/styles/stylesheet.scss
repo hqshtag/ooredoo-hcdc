@@ -9,6 +9,7 @@
 @import "./pages/index";
 @import "./pages/users";
 @import "./pages/nodes";
+@import "./pages/interface";
 
 @import "./forms/auth_form";
 @import "./forms/add_user";
@@ -22,4 +23,19 @@
 
 div.app {
   display: flex;
+}
+
+input.search-field {
+  width: 42%;
+  height: 27px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid $c5Gray;
+  padding: 0px 20px;
+  margin: 10px auto;
+  float: right;
+  &:focus {
+    outline: none;
+    border: 2px solid $c5Gray;
+  }
 }

@@ -122,6 +122,7 @@ const Field = ({ className, label, name, manage, value, onChange }) => {
             name={name}
             value={value}
             onChange={onChange}
+            autoComplete="off"
           />
         ) : (
           <span className={className}>{value}</span>

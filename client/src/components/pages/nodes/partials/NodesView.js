@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { currentUserSelector } from "../../../../redux/slices/authSlice";
 import { nodeSelector } from "../../../../redux/slices/nodeSlice";
-import Search from "./Search";
+import Search from "../../../partials/Search";
 import NodesList from "./NodesList";
 
 const NodesView = ({ handleRemove, handleUpdate }) => {

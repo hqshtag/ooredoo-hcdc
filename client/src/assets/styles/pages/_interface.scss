@@ -1,0 +1,80 @@
+.interfaces-page {
+  display: flex;
+  align-items: center;
+  div.chart {
+    background: white;
+    height: 500px;
+    padding: 20px 10px;
+    align-self: baseline;
+  }
+  .interfaces-view {
+    position: relative;
+    height: 500px;
+    // min-height: 800px;
+    overflow-y: auto;
+    width: 940px;
+    background: white;
+    padding: 20px 10px;
+    border-radius: 15px;
+    .interface-card {
+      cursor: pointer;
+      position: relative;
+      background: white;
+      width: 870px;
+      height: 66px;
+      margin: 10px auto;
+      border-radius: 7px;
+      border: 1px solid $dark;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      // background: lighten(#e81818, 19);
+      // box-shadow: 0 4px 9px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+      transition: all 100ms ease-out;
+      &:hover {
+        background: rgb(249, 254, 255);
+        transform: scale(1.01);
+        //box-shadow: 0 4px 9px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+      }
+      div.names {
+        background: lighten(#e81818, 19);
+        max-width: 240px;
+        color: $dark;
+        h2 {
+          color: white;
+        }
+        text-align: center;
+        h3 > span {
+          font-size: 15px;
+          //color: $dark;
+        }
+      }
+      div {
+        padding: 10px;
+        min-width: 220px;
+        text-align: center;
+      }
+      div#IP {
+        color: $dark;
+      }
+      table {
+        //background: red;
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        min-width: 36%;
+        height: 90%;
+        // margin-right: 60px;
+        th,
+        td {
+          margin: 10px;
+          //padding: 2px;
+          text-align: center;
+          border: 1px solid #dddddd;
+        }
+      }
+      svg {
+        margin: 5px;
+      }
+    }
+  }
+}

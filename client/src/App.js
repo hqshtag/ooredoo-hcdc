@@ -14,6 +14,8 @@ function App() {
     nodes: true,
     interfaces: false,
     errors: false,
+    loadbalancer: false,
+
     users: false,
   });
 
@@ -22,6 +24,7 @@ function App() {
       nodes: true,
       interfaces: false,
       errors: false,
+      loadbalancer: false,
       users: false,
     });
   };
@@ -33,6 +36,8 @@ function App() {
       nodes: false,
       interfaces: false,
       errors: false,
+      loadbalancer: false,
+
       users: false,
       [key]: true,
     });
@@ -46,12 +51,14 @@ function App() {
   }, [token, dispatch]);
 
   useEffect(() => {
-    let { nodes, interfaces, errors, users } = activeMenu;
-    if (!nodes && !interfaces && !errors && !users) {
+    let { nodes, interfaces, errors, users, loadbalancer } = activeMenu;
+    if (!nodes && !interfaces && !errors && !users && !loadbalancer) {
       setActiveMenu({
         nodes: true,
         interfaces: false,
         errors: false,
+        loadbalancer: false,
+
         users: false,
       });
     }

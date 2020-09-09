@@ -4,6 +4,7 @@ import { ReactComponent as Nodes } from "../../assets/icons/nodes.svg";
 import { ReactComponent as Errors } from "../../assets/icons/errors.svg";
 import { ReactComponent as Interfaces } from "../../assets/icons/interfaces.svg";
 import { ReactComponent as Users } from "../../assets/icons/users.svg";
+import { ReactComponent as LoadBalancer } from "../../assets/icons/loadbalancer.svg";
 import { useSelector } from "react-redux";
 import { currentUserSelector } from "../../redux/slices/authSlice";
 
@@ -16,11 +17,19 @@ const Usermenu = ({ handleMenuNavigation }) => {
     <div className="user-menu">
       <button
         className="btn user-menu-btn"
+        data-key="loadbalancer"
+        onClick={handleMenuNavigation}
+      >
+        <LoadBalancer /> F5 BIG IP
+      </button>
+      <button
+        className="btn user-menu-btn"
         data-key="nodes"
         onClick={handleMenuNavigation}
       >
         <Nodes /> Nodes
       </button>
+
       <button
         className="btn user-menu-btn"
         data-key="interfaces"

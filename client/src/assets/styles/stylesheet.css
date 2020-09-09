@@ -325,22 +325,6 @@ div.nodes-page .nodes-view {
   border-radius: 15px;
 }
 
-div.nodes-page .nodes-view input.search-field {
-  width: 42%;
-  height: 27px;
-  font-size: 14px;
-  border-radius: 10px;
-  border: 1px solid #c5c5c5;
-  padding: 0px 20px;
-  margin: 10px auto;
-  float: right;
-}
-
-div.nodes-page .nodes-view input.search-field:focus {
-  outline: none;
-  border: 2px solid #c5c5c5;
-}
-
 div.nodes-page .nodes-view h4 {
   position: absolute;
   top: 50%;
@@ -365,12 +349,14 @@ div.nodes-page .nodes-view .node-card {
       -ms-flex-align: center;
           align-items: center;
   background: #f17070;
-  -webkit-transition: background 100ms ease-out;
-  transition: background 100ms ease-out;
+  -webkit-transition: all 100ms ease-out;
+  transition: all 100ms ease-out;
 }
 
 div.nodes-page .nodes-view .node-card:hover {
   background: #f49595;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
 }
 
 div.nodes-page .nodes-view .node-card label.node-label {
@@ -420,6 +406,103 @@ div.nodes-page .nodes-view .node-card .buttons button {
   margin: 0px 2px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
+}
+
+.interfaces-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.interfaces-page div.chart {
+  background: white;
+  height: 500px;
+  padding: 20px 10px;
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+}
+
+.interfaces-page .interfaces-view {
+  position: relative;
+  height: 500px;
+  overflow-y: auto;
+  width: 940px;
+  background: white;
+  padding: 20px 10px;
+  border-radius: 15px;
+}
+
+.interfaces-page .interfaces-view .interface-card {
+  cursor: pointer;
+  position: relative;
+  background: white;
+  width: 870px;
+  height: 66px;
+  margin: 10px auto;
+  border-radius: 7px;
+  border: 1px solid #535353;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 100ms ease-out;
+  transition: all 100ms ease-out;
+}
+
+.interfaces-page .interfaces-view .interface-card:hover {
+  background: #f9feff;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+.interfaces-page .interfaces-view .interface-card div.names {
+  background: #f17070;
+  max-width: 240px;
+  color: #535353;
+  text-align: center;
+}
+
+.interfaces-page .interfaces-view .interface-card div.names h2 {
+  color: white;
+}
+
+.interfaces-page .interfaces-view .interface-card div.names h3 > span {
+  font-size: 15px;
+}
+
+.interfaces-page .interfaces-view .interface-card div {
+  padding: 10px;
+  min-width: 220px;
+  text-align: center;
+}
+
+.interfaces-page .interfaces-view .interface-card div#IP {
+  color: #535353;
+}
+
+.interfaces-page .interfaces-view .interface-card table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  min-width: 36%;
+  height: 90%;
+}
+
+.interfaces-page .interfaces-view .interface-card table th,
+.interfaces-page .interfaces-view .interface-card table td {
+  margin: 10px;
+  text-align: center;
+  border: 1px solid #dddddd;
+}
+
+.interfaces-page .interfaces-view .interface-card svg {
+  margin: 5px;
 }
 
 form.user-login {
@@ -504,5 +587,21 @@ div.app {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+input.search-field {
+  width: 42%;
+  height: 27px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #c5c5c5;
+  padding: 0px 20px;
+  margin: 10px auto;
+  float: right;
+}
+
+input.search-field:focus {
+  outline: none;
+  border: 2px solid #c5c5c5;
 }
 /*# sourceMappingURL=stylesheet.css.map */
