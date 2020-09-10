@@ -417,19 +417,31 @@ div.nodes-page .nodes-view .node-card .buttons button {
           align-items: center;
 }
 
-.interfaces-page div.chart {
+.interfaces-page input.search-field {
+  float: none;
+  margin: 10px 0px 10px 70px;
+}
+
+.interfaces-page div.chart-container {
   background: white;
   height: 500px;
   padding: 20px 10px;
   -ms-flex-item-align: baseline;
       align-self: baseline;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.interfaces-page div.chart-container h3 {
+  text-align: center;
+  margin: 12px;
 }
 
 .interfaces-page .interfaces-view {
   position: relative;
   height: 500px;
   overflow-y: auto;
-  width: 940px;
+  width: 570px;
   background: white;
   padding: 20px 10px;
   border-radius: 15px;
@@ -439,11 +451,10 @@ div.nodes-page .nodes-view .node-card .buttons button {
   cursor: pointer;
   position: relative;
   background: white;
-  width: 870px;
+  width: 460px;
   height: 66px;
   margin: 10px auto;
   border-radius: 7px;
-  border: 1px solid #535353;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -452,6 +463,8 @@ div.nodes-page .nodes-view .node-card .buttons button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-shadow: 0 4px 9px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+          box-shadow: 0 4px 9px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
   -webkit-transition: all 100ms ease-out;
   transition: all 100ms ease-out;
 }
@@ -464,7 +477,7 @@ div.nodes-page .nodes-view .node-card .buttons button {
 
 .interfaces-page .interfaces-view .interface-card div.names {
   background: #f17070;
-  max-width: 240px;
+  min-width: 200px;
   color: #535353;
   text-align: center;
 }
@@ -479,7 +492,7 @@ div.nodes-page .nodes-view .node-card .buttons button {
 
 .interfaces-page .interfaces-view .interface-card div {
   padding: 10px;
-  min-width: 220px;
+  min-width: 180px;
   text-align: center;
 }
 
@@ -503,6 +516,8 @@ div.nodes-page .nodes-view .node-card .buttons button {
 
 .interfaces-page .interfaces-view .interface-card svg {
   margin: 5px;
+  height: 36px;
+  width: 36px;
 }
 
 form.user-login {

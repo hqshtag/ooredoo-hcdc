@@ -3,6 +3,7 @@ import { ReactComponent as UP } from "../../../../assets/icons/up-arrow.svg";
 import { ReactComponent as DOWN } from "../../../../assets/icons/down-arrow.svg";
 import { useDispatch } from "react-redux";
 import { select } from "../../../../redux/slices/interfaceSlice";
+import InterfaceChart from "./InterfaceChart";
 
 const InterfaceCard = ({ data }) => {
   const {
@@ -28,7 +29,8 @@ const InterfaceCard = ({ data }) => {
       <div id="IP">
         <h3>{ip}</h3>
       </div>
-      <table>
+
+      {/*  <table>
         <thead>
           <tr>
             <th>Rx</th>
@@ -47,7 +49,7 @@ const InterfaceCard = ({ data }) => {
             <td>{Output_taille}</td>
           </tr>
         </tbody>
-      </table>
+      </table> */}
 
       {state === "up" ? <UP /> : <DOWN />}
     </div>
