@@ -133,6 +133,23 @@ input.form-input:focus {
   border-color: #919191;
 }
 
+div.circle {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  margin: 1pt;
+}
+
+div.circle.red {
+  background-color: #ff4444;
+  color: #ff4444;
+}
+
+div.circle.green {
+  background-color: #50e538;
+  color: #50e538;
+}
+
 nav.navbar {
   background: #eaeaea;
   display: -webkit-box;
@@ -317,7 +334,7 @@ div.users-page div.users-list div.user-card span.id-output {
 
 div.nodes-page .nodes-view {
   position: relative;
-  height: 500px;
+  height: 70vh;
   overflow-y: auto;
   width: 940px;
   background: white;
@@ -419,12 +436,26 @@ div.nodes-page .nodes-view .node-card .buttons button {
 
 .interfaces-page input.search-field {
   float: none;
+  width: 360px;
   margin: 10px 0px 10px 70px;
 }
 
 .interfaces-page div.chart-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background: white;
-  height: 500px;
+  height: 70vh;
   padding: 20px 10px;
   -ms-flex-item-align: baseline;
       align-self: baseline;
@@ -439,10 +470,10 @@ div.nodes-page .nodes-view .node-card .buttons button {
 
 .interfaces-page .interfaces-view {
   position: relative;
-  height: 500px;
+  height: 70vh;
   overflow-y: auto;
   width: 570px;
-  background: white;
+  background: #ededed;
   padding: 20px 10px;
   border-radius: 15px;
 }
@@ -518,6 +549,141 @@ div.nodes-page .nodes-view .node-card .buttons button {
   margin: 5px;
   height: 36px;
   width: 36px;
+}
+
+.f5-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.f5-page .f5-view {
+  position: relative;
+  height: 70vh;
+  overflow-y: auto;
+  width: 72vw;
+  background: white;
+  padding: 20px 10px;
+  border-radius: 15px;
+}
+
+.f5-page .f5-view input.search-field {
+  float: none;
+  width: 360px;
+  margin: 10px 0px 10px 70px;
+}
+
+.f5-page .f5-view div.cards-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.f5-page .f5-view div.cards-container .f5-card {
+  background: #f17070;
+  margin: 5px;
+  padding: 10px;
+  width: 250px;
+  min-height: 160px;
+  border-radius: 9px;
+  font-size: 13px;
+  -webkit-transition: all 120ms ease-in-out;
+  transition: all 120ms ease-in-out;
+}
+
+.f5-page .f5-view div.cards-container .f5-card h4 {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.f5-page .f5-view div.cards-container .f5-card div.ips {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.f5-page .f5-view div.cards-container .f5-card div.ips span.ip {
+  background: #535353;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+
+.f5-page .f5-view div.cards-container .f5-card div.serv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 5px auto;
+  padding: 5px;
+  border-radius: 3px;
+  background: #ededed;
+  color: black;
+}
+
+.f5-page .f5-view div.cards-container .f5-card div.serv span.data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.f5-page .f5-view div.cards-container .f5-card div.members {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  border-radius: 3px;
+}
+
+.f5-page .f5-view div.cards-container .f5-card div.members label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 5px auto;
+  padding: 5px;
+  color: #535353;
+}
+
+.f5-page .f5-view div.cards-container .f5-card div.members label > span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.f5-page .f5-view div.cards-container .f5-card:hover {
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
 }
 
 form.user-login {

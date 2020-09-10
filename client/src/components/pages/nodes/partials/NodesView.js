@@ -27,7 +27,11 @@ const NodesView = ({ handleRemove, handleUpdate }) => {
 
   return (
     <div className="nodes-view">
-      <Search value={filter} onChange={handleFilterChange} />
+      <Search
+        value={filter}
+        onChange={handleFilterChange}
+        placeholder={"Search by Name, IP,  or Serial"}
+      />
       <NodesList
         nodes={filteredNodes}
         admin={admin}

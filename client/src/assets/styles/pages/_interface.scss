@@ -3,15 +3,20 @@
   align-items: center;
   input.search-field {
     float: none;
+    width: 360px;
     margin: 10px 0px 10px 70px;
   }
   div.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     h3 {
       text-align: center;
       margin: 12px;
     }
     background: white;
-    height: 500px;
+    height: 70vh;
     padding: 20px 10px;
     align-self: baseline;
     border-top-right-radius: 15px;
@@ -19,11 +24,11 @@
   }
   .interfaces-view {
     position: relative;
-    height: 500px;
+    height: 70vh;
     // min-height: 800px;
     overflow-y: auto;
     width: 570px;
-    background: white;
+    background: $edGray;
     padding: 20px 10px;
     border-radius: 15px;
     .interface-card {

@@ -28,7 +28,11 @@ const InterfacesView = () => {
       : null;
   return (
     <div className="interfaces-view">
-      <Search value={filter} onChange={handleFilterChange} />
+      <Search
+        value={filter}
+        onChange={handleFilterChange}
+        placeholder={"Search by Node Name, Interface Name or IP"}
+      />
       {cards}
     </div>
   );
