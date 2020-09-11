@@ -131,3 +131,9 @@ div.circle {
     color: $green;
   }
 }
+
+hr.sep {
+  width: 72%;
+  border-top: 1px solid $dark;
+  transform: rotate(90deg);
+}

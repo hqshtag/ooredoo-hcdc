@@ -34,7 +34,7 @@ export default class Services {
     const config = {
       headers: { authorization: `Bearer ${token}` },
     };
-    return await axios.post(url, data, config);
+    return await axios.post(url, { data }, config);
   };
 
   update = async (data, id, token) => {
@@ -47,6 +47,14 @@ export default class Services {
 
   remove = async (id, token) => {
     let url = `${this.baseurl}/delete/${id}`;
+    const config = {
+      headers: { authorization: `Bearer ${token}` },
+    };
+    return await axios.delete(url, config);
+  };
+
+  removeAll = async (token) => {
+    let url = `${this.baseurl}/clear`;
     const config = {
       headers: { authorization: `Bearer ${token}` },
     };

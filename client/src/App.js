@@ -16,7 +16,7 @@ function App() {
     errors: false,
     loadbalancer: false,
 
-    users: false,
+    settings: false,
   });
 
   const resetMenu = () => {
@@ -25,7 +25,7 @@ function App() {
       interfaces: false,
       errors: false,
       loadbalancer: false,
-      users: false,
+      settings: false,
     });
   };
 
@@ -38,7 +38,7 @@ function App() {
       errors: false,
       loadbalancer: false,
 
-      users: false,
+      settings: false,
       [key]: true,
     });
   };
@@ -51,15 +51,15 @@ function App() {
   }, [token, dispatch]);
 
   useEffect(() => {
-    let { nodes, interfaces, errors, users, loadbalancer } = activeMenu;
-    if (!nodes && !interfaces && !errors && !users && !loadbalancer) {
+    let { nodes, interfaces, errors, settings, loadbalancer } = activeMenu;
+    if (!nodes && !interfaces && !errors && !settings && !loadbalancer) {
       setActiveMenu({
         nodes: true,
         interfaces: false,
         errors: false,
         loadbalancer: false,
 
-        users: false,
+        settings: false,
       });
     }
   }, [activeMenu]);

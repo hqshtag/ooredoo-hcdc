@@ -150,6 +150,13 @@ div.circle.green {
   color: #50e538;
 }
 
+hr.sep {
+  width: 72%;
+  border-top: 1px solid #535353;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
 nav.navbar {
   background: #eaeaea;
   display: -webkit-box;
@@ -237,10 +244,32 @@ div.main-container {
           align-items: center;
 }
 
-div.users-page {
+div.users-management {
+  background: white;
+  padding: 5px;
+  border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.users-management form.add_user {
+  width: 300px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -249,21 +278,34 @@ div.users-page {
           align-items: center;
 }
 
-div.users-page form {
-  margin: 50px;
+div.users-management form.add_user input {
+  margin: 5px;
 }
 
-div.users-page div.users-list {
+div.users-management form.add_user input:first-child {
+  margin-top: 30px;
+}
+
+div.users-management div.users-list {
   background: #f3f2f2;
-  border-radius: 12px;
   width: 300px;
-  height: 500px;
+  height: auto;
+  max-height: 280px;
   padding: 7px 10px;
   padding-top: 0;
   overflow-y: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
-div.users-page div.users-list h3 {
+div.users-management div.users-list h3 {
   position: fixed;
   z-index: 13;
   background: #f3f2f2;
@@ -272,7 +314,7 @@ div.users-page div.users-list h3 {
   height: 24px;
 }
 
-div.users-page div.users-list div.user-card {
+div.users-management div.users-list div.user-card {
   background: white;
   position: relative;
   width: 270px;
@@ -292,22 +334,22 @@ div.users-page div.users-list div.user-card {
   transition: all 270ms ease-out;
 }
 
-div.users-page div.users-list div.user-card:first-of-type {
+div.users-management div.users-list div.user-card:first-of-type {
   margin-top: 30px;
 }
 
-div.users-page div.users-list div.user-card:hover {
+div.users-management div.users-list div.user-card:hover {
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-div.users-page div.users-list div.user-card .icon-btn {
+div.users-management div.users-list div.user-card .icon-btn {
   position: absolute;
   bottom: 7px;
   right: 5px;
 }
 
-div.users-page div.users-list div.user-card span.username-output {
+div.users-management div.users-list div.user-card span.username-output {
   width: 220px;
   padding: 3px 7px;
   border-radius: 12px;
@@ -320,13 +362,13 @@ div.users-page div.users-list div.user-card span.username-output {
           align-items: center;
 }
 
-div.users-page div.users-list div.user-card span.username-output svg {
+div.users-management div.users-list div.user-card span.username-output svg {
   border-right: 1px solid #eaeaea;
   margin-right: 10px;
   padding-right: 10px;
 }
 
-div.users-page div.users-list div.user-card span.id-output {
+div.users-management div.users-list div.user-card span.id-output {
   color: #ccc;
   font-size: 12px;
   margin: 2px auto;
@@ -686,6 +728,124 @@ div.nodes-page .nodes-view .node-card .buttons button {
           transform: scale(1.02);
 }
 
+.settings-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.settings-page .data-management {
+  width: 500px;
+  height: 30vh;
+  background: white;
+  margin: 0px 10px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.settings-page .data-management div.imports {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 420px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.settings-page .data-management div.imports div.excel-reader {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px;
+  width: 150px;
+  height: 100px;
+  background: white;
+  padding: 5px;
+  border: 2px solid #535353;
+  border-radius: 5px;
+}
+
+.settings-page .data-management div.imports div.excel-reader input[type="file"] {
+  display: none;
+}
+
+.settings-page .data-management div.imports div.excel-reader label {
+  margin-top: 20px;
+  background: #2553b1;
+  color: white;
+  width: 100px;
+  text-align: center;
+  padding: 1px 2px;
+  border-radius: 5px;
+  -webkit-transition: all 120ms ease-in;
+  transition: all 120ms ease-in;
+}
+
+.settings-page .data-management div.imports div.excel-reader label:hover {
+  background: #3d6fd6;
+  cursor: pointer;
+}
+
+.settings-page .data-management div.imports div.excel-reader label:active {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.settings-page .data-management div.imports div.excel-reader span.file-name {
+  margin-top: 18px;
+  font-size: 12px;
+}
+
+.settings-page .data-management div.imports div.excel-reader div.buttons {
+  margin: 7px auto;
+}
+
+.settings-page .data-management div.imports div.excel-reader div.buttons button {
+  font-size: 14px;
+  height: 20px;
+  width: 50px;
+  border-radius: 3px;
+}
+
+.settings-page .data-management div.imports div.excel-reader div.buttons button.reset-btn {
+  background: #ff4444;
+}
+
+.settings-page .data-management div.imports div.excel-reader div.buttons button.save-btn {
+  background: #50e538;
+}
+
+.settings-page .data-management div.imports div.excel-reader button.clear-btn {
+  position: absolute;
+  padding: 1px 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  height: 20px;
+  width: 110px;
+  bottom: 5px;
+}
+
 form.user-login {
   width: 600px;
   height: 270px;
@@ -726,35 +886,6 @@ form.user-logout {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-form.add_user {
-  width: 390px;
-  height: 240px;
-  padding: 12px;
-  border-radius: 12px;
-  background-color: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-form.add_user input {
-  margin: 20px;
-}
-
-form.add_user button {
-  margin-left: 25px;
 }
 
 * {

@@ -21,6 +21,28 @@ export const getAll = createAsyncThunk(
   }
 );
 
+export const createMany = createAsyncThunk(
+  "f5/create/many",
+  async ({ data, token }, { rejectWithValue }) => {
+    try {
+      return await f5Services.create_many(data, token);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
+export const deleteAll = createAsyncThunk(
+  "f5/remove/all",
+  async (token, { rejectWithValue }) => {
+    try {
+      return await f5Services.removeAll(token);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 const f5Slice = createSlice({
   name: "f5",
   initialState,

@@ -158,3 +158,19 @@ exports.delete = async (req, res) => {
         }
     })
 }
+
+exports.deleteAll = async (req, res) => {
+    LoadBalancer.deleteMany({}, (err) => {
+        if (err) {
+            return res.status(400).json({
+                status: 'Error',
+                message: "Database error"
+            })
+        } else {
+            return res.status(200).json({
+                status: 'success',
+                message: 'Cleared Loadbalancer datasets'
+            })
+        }
+    })
+}

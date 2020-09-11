@@ -1,0 +1,85 @@
+.settings-page {
+  display: flex;
+  .data-management {
+    width: 500px;
+    height: 30vh;
+    background: white;
+    margin: 0px 10px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    div.imports {
+      display: flex;
+      width: 420px;
+      //align-items: center;
+      justify-content: center;
+      // background: red;
+      div.excel-reader {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+        width: 150px;
+        height: 100px;
+        background: white;
+        padding: 5px;
+        border: 2px solid $dark;
+        border-radius: 5px;
+        input[type="file"] {
+          display: none;
+        }
+        label {
+          margin-top: 20px;
+          background: $blue;
+          color: white;
+          width: 100px;
+          text-align: center;
+          padding: 1px 2px;
+          border-radius: 5px;
+          transition: all 120ms ease-in;
+          &:hover {
+            background: lighten($blue, 12);
+            cursor: pointer;
+          }
+          &:active {
+            transform: scale(1.05);
+          }
+        }
+        span.file-name {
+          margin-top: 18px;
+
+          font-size: 12px;
+        }
+        div.buttons {
+          margin: 7px auto;
+          button {
+            font-size: 14px;
+            height: 20px;
+            width: 50px;
+            border-radius: 3px;
+          }
+          button.reset-btn {
+            background: $red;
+          }
+          button.save-btn {
+            background: $green;
+          }
+        }
+        button.clear-btn {
+          position: absolute;
+          padding: 1px 5px;
+
+          font-size: 14px;
+          border-radius: 5px;
+          height: 20px;
+          width: 110px;
+          bottom: 5px;
+        }
+      }
+    }
+  }
+}

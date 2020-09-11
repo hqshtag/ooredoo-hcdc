@@ -43,6 +43,28 @@ export const remove = createAsyncThunk(
   }
 );
 
+export const createMany = createAsyncThunk(
+  "node/create/many",
+  async ({ data, token }, { rejectWithValue }) => {
+    try {
+      return await nodeServices.create_many(data, token);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
+export const deleteAll = createAsyncThunk(
+  "node/remove/all",
+  async (token, { rejectWithValue }) => {
+    try {
+      return await nodeServices.removeAll(token);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 const nodeSlice = createSlice({
   name: "node",
   initialState,
@@ -79,6 +101,9 @@ const nodeSlice = createSlice({
     },
     [update.rejected]: (state) => {
       state.status = "rejected";
+    },
+    [deleteAll.fulfilled]: (state) => {
+      state.list = [];
     },
   },
 });

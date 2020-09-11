@@ -3,7 +3,7 @@ import React from "react";
 import { ReactComponent as Nodes } from "../../assets/icons/nodes.svg";
 import { ReactComponent as Errors } from "../../assets/icons/errors.svg";
 import { ReactComponent as Interfaces } from "../../assets/icons/interfaces.svg";
-import { ReactComponent as Users } from "../../assets/icons/users.svg";
+import { ReactComponent as Settings } from "../../assets/icons/edit.svg";
 import { ReactComponent as LoadBalancer } from "../../assets/icons/loadbalancer.svg";
 import { useSelector } from "react-redux";
 import { currentUserSelector } from "../../redux/slices/authSlice";
@@ -47,10 +47,10 @@ const Usermenu = ({ handleMenuNavigation }) => {
       {role === "admin" && (
         <button
           className="btn user-menu-btn"
-          data-key="users"
+          data-key="settings"
           onClick={handleMenuNavigation}
         >
-          <Users /> Users
+          <Settings /> Settings
         </button>
       )}
 

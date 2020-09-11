@@ -13,6 +13,10 @@ export const ignoredActions = [
 
   "f5/getAll/fulfilled",
   "f5/getAll/rejected",
+  "f5/remove/all/fulfilled",
+  "f5/remove/all/rejected",
+  "f5/create/many/fulfilled",
+  "f5/create/many/rejected",
 
   "node/getAll/fulfilled",
   "node/getAll/rejected",
@@ -20,6 +24,10 @@ export const ignoredActions = [
   "node/remove/rejected",
   "node/update/fulfilled",
   "node/update/rejected",
+  "node/remove/all/fulfilled",
+  "node/remove/all/rejected",
+  "node/create/many/fulfilled",
+  "node/create/many/rejected",
 
   "interface/getAll/fulfilled",
   "interface/getAll/rejected",
@@ -27,4 +35,8 @@ export const ignoredActions = [
   "interface/remove/rejected",
   "interface/update/fulfilled",
   "interface/update/rejected",
+  "interface/remove/all/fulfilled",
+  "interface/remove/all/rejected",
+  "interface/create/many/fulfilled",
+  "interface/create/many/rejected",
 ];

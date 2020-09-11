@@ -3,6 +3,7 @@ import Nodes from "./pages/nodes/Nodes";
 import Interfaces from "./pages/interfaces/Interfaces";
 import Errors from "./pages/errors/Errors";
 import Users from "./pages/users/Users";
+import Settings from "./pages/settings/Settings";
 import { useDispatch } from "react-redux";
 import { getAll as getAllUsers } from "../redux/slices/usersSlice";
 import { getAll as getAllF5 } from "../redux/slices/f5Slice";
@@ -15,7 +16,7 @@ import Loadbalancer from "./pages/loadbalancer/Loadbalancer";
 import { unwrapResult } from "@reduxjs/toolkit";
 
 const Dashboard = ({ activeMenu, token }) => {
-  const { nodes, interfaces, errors, loadbalancer, users } = activeMenu;
+  const { nodes, interfaces, errors, loadbalancer, settings } = activeMenu;
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -32,7 +33,7 @@ const Dashboard = ({ activeMenu, token }) => {
       {nodes && <Nodes />}
       {interfaces && <Interfaces />}
       {errors && <Errors />}
-      {users && <Users />}
+      {settings && <Settings />}
     </>
   );
 };

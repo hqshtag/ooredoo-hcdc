@@ -43,6 +43,28 @@ export const remove = createAsyncThunk(
   }
 );
 
+export const createMany = createAsyncThunk(
+  "interface/create/many",
+  async ({ data, token }, { rejectWithValue }) => {
+    try {
+      return await interfaceServices.create_many(data, token);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
+export const deleteAll = createAsyncThunk(
+  "interface/remove/all",
+  async (token, { rejectWithValue }) => {
+    try {
+      return await interfaceServices.removeAll(token);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 const interfaceSlice = createSlice({
   name: "interface",
   initialState,
