@@ -5,6 +5,7 @@
 @import "./partials/footer";
 @import "./partials/usermenu";
 @import "./partials/tabs";
+@import "./partials/alert";
 
 @import "./pages/index";
 @import "./pages/users";
@@ -38,90 +39,5 @@ input.search-field {
   &:focus {
     outline: none;
     border: 2px solid $c5Gray;
-  }
-}
-
-div.alert-card {
-  position: absolute;
-  right: -360px;
-  bottom: 150px;
-  z-index: 100;
-  min-height: 72px;
-  min-width: 270px;
-  max-height: 100px;
-  max-width: 360px;
-  cursor: pointer;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  //margin: 10px;
-  padding: 3px 15px;
-
-  opacity: 0;
-
-  transition: transform 250ms ease-in, opacity 100ms ease;
-  &.in {
-    opacity: 1;
-    transform: translateX(-396px);
-    transition: transform 300ms ease-out, opacity 200ms ease-out;
-  }
-  &.out {
-    opacity: 0;
-    transform: translateX(400px);
-  }
-
-  &.warning {
-    background-color: $cthroYellow;
-    svg {
-      fill: $oyellow;
-    }
-    label {
-      color: $oyellow;
-    }
-  }
-  &.error {
-    background-color: $cthroRed;
-    svg {
-      fill: $ored;
-    }
-    label {
-      color: $ored;
-    }
-  }
-  &.success {
-    background-color: $cthroGreen;
-    svg {
-      fill: $ogreen;
-    }
-    label {
-      color: $ogreen;
-    }
-  }
-  &.info {
-    background-color: $cthroBlue;
-    svg {
-      fill: $oblue;
-    }
-    label {
-      color: $oblue;
-    }
-  }
-  svg {
-    height: 30px;
-    width: 30px;
-    padding: 10px;
-    margin: 7px;
-  }
-
-  label {
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 17px;
-
-    padding-top: 15px;
-    padding-bottom: 15px;
-    justify-self: center;
-    margin-left: 19px;
   }
 }

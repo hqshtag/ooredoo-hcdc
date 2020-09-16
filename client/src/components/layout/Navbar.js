@@ -2,7 +2,12 @@ import React from "react";
 import { ReactComponent as Logo } from "../../assets/icons/ooredoo_logo.svg";
 import { useDispatch } from "react-redux";
 import { logout } from "../../redux/slices/authSlice";
-import { createAlert } from "../../redux/slices/alertSlice";
+import {
+  createInfo,
+  createSuccess,
+  createWarning,
+  createError,
+} from "../../redux/slices/alertSlice";
 
 const Navbar = ({ loggedIn, resetMenu }) => {
   const dispatch = useDispatch();
@@ -17,7 +22,6 @@ const Navbar = ({ loggedIn, resetMenu }) => {
       <div className="logo container">
         <Logo />
       </div>
-
       {loggedIn && (
         <button className="btn medium" onClick={handleLogout}>
           Logout

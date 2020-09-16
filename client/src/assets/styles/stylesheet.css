@@ -233,6 +233,99 @@ div.user-menu .user-menu-btn svg {
   display: unset;
 }
 
+div.alert-card {
+  position: absolute;
+  right: -360px;
+  bottom: 150px;
+  z-index: 100;
+  min-height: 72px;
+  min-width: 270px;
+  max-height: 100px;
+  max-width: 360px;
+  cursor: pointer;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3px 15px;
+  opacity: 0;
+  -webkit-transition: opacity 100ms ease, -webkit-transform 250ms ease-in;
+  transition: opacity 100ms ease, -webkit-transform 250ms ease-in;
+  transition: transform 250ms ease-in, opacity 100ms ease;
+  transition: transform 250ms ease-in, opacity 100ms ease, -webkit-transform 250ms ease-in;
+  background-color: #535353;
+}
+
+div.alert-card.in {
+  opacity: 1;
+  -webkit-transform: translateX(-396px);
+          transform: translateX(-396px);
+  -webkit-transition: opacity 200ms ease-out, -webkit-transform 300ms ease-out;
+  transition: opacity 200ms ease-out, -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out, opacity 200ms ease-out;
+  transition: transform 300ms ease-out, opacity 200ms ease-out, -webkit-transform 300ms ease-out;
+}
+
+div.alert-card.out {
+  opacity: 0;
+  -webkit-transform: translateX(400px);
+          transform: translateX(400px);
+}
+
+div.alert-card.warning svg {
+  fill: #eab52f;
+}
+
+div.alert-card.warning label {
+  color: #eab52f;
+}
+
+div.alert-card.error svg {
+  fill: #f54141;
+}
+
+div.alert-card.error label {
+  color: #f54141;
+}
+
+div.alert-card.success svg {
+  fill: #41d67f;
+}
+
+div.alert-card.success label {
+  color: #41d67f;
+}
+
+div.alert-card.info svg {
+  fill: #18a3df;
+}
+
+div.alert-card.info label {
+  color: #18a3df;
+}
+
+div.alert-card svg {
+  height: 30px;
+  width: 30px;
+  padding: 5px;
+  margin: 7px;
+}
+
+div.alert-card label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 17px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin-left: 10px;
+}
+
 div.main-container {
   width: 100vw;
   height: 81vh;
@@ -995,113 +1088,5 @@ input.search-field {
 input.search-field:focus {
   outline: none;
   border: 2px solid #c5c5c5;
-}
-
-div.alert-card {
-  position: absolute;
-  right: -360px;
-  bottom: 150px;
-  z-index: 100;
-  min-height: 72px;
-  min-width: 270px;
-  max-height: 100px;
-  max-width: 360px;
-  cursor: pointer;
-  border-radius: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 3px 15px;
-  opacity: 0;
-  -webkit-transition: opacity 100ms ease, -webkit-transform 250ms ease-in;
-  transition: opacity 100ms ease, -webkit-transform 250ms ease-in;
-  transition: transform 250ms ease-in, opacity 100ms ease;
-  transition: transform 250ms ease-in, opacity 100ms ease, -webkit-transform 250ms ease-in;
-}
-
-div.alert-card.in {
-  opacity: 1;
-  -webkit-transform: translateX(-396px);
-          transform: translateX(-396px);
-  -webkit-transition: opacity 200ms ease-out, -webkit-transform 300ms ease-out;
-  transition: opacity 200ms ease-out, -webkit-transform 300ms ease-out;
-  transition: transform 300ms ease-out, opacity 200ms ease-out;
-  transition: transform 300ms ease-out, opacity 200ms ease-out, -webkit-transform 300ms ease-out;
-}
-
-div.alert-card.out {
-  opacity: 0;
-  -webkit-transform: translateX(400px);
-          transform: translateX(400px);
-}
-
-div.alert-card.warning {
-  background-color: rgba(255, 239, 153, 0.42);
-}
-
-div.alert-card.warning svg {
-  fill: #eab52f;
-}
-
-div.alert-card.warning label {
-  color: #eab52f;
-}
-
-div.alert-card.error {
-  background-color: rgba(255, 153, 153, 0.47);
-}
-
-div.alert-card.error svg {
-  fill: #f54141;
-}
-
-div.alert-card.error label {
-  color: #f54141;
-}
-
-div.alert-card.success {
-  background-color: rgba(155, 255, 153, 0.5);
-}
-
-div.alert-card.success svg {
-  fill: #41d67f;
-}
-
-div.alert-card.success label {
-  color: #41d67f;
-}
-
-div.alert-card.info {
-  background-color: rgba(153, 224, 255, 0.42);
-}
-
-div.alert-card.info svg {
-  fill: #18a3df;
-}
-
-div.alert-card.info label {
-  color: #18a3df;
-}
-
-div.alert-card svg {
-  height: 30px;
-  width: 30px;
-  padding: 10px;
-  margin: 7px;
-}
-
-div.alert-card label {
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 17px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  -ms-grid-column-align: center;
-      justify-self: center;
-  margin-left: 19px;
 }
 /*# sourceMappingURL=stylesheet.css.map */

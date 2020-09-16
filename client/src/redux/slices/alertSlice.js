@@ -21,7 +21,7 @@ export const alertSlice = createSlice({
       state.list.push({ message: action.payload, type: "error", show: true });
     },
     createSuccess: (state, action) => {
-      state.list.splice(1);
+      state.list.splice(0);
       state.list.push({ message: action.payload, type: "success", show: true });
     },
     createInfo: (state, action) => {
