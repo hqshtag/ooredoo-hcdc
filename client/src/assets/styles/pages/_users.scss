@@ -25,7 +25,7 @@ div.users-management {
     // border-radius: 12px;
     width: 300px;
     height: auto;
-    max-height: 280px;
+    max-height: 27vh;
     padding: 7px 10px;
     padding-top: 0;
     overflow-y: auto;
@@ -41,6 +41,9 @@ div.users-management {
       height: 24px;
 
       // padding: 10px 5px;
+    }
+    span.users-note {
+      margin-top: 27px;
     }
     div.user-card {
       &:first-of-type {

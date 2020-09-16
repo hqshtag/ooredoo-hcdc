@@ -5,10 +5,18 @@ import { make_cols } from "./MakeColumns";
 import { SheetJSFT } from "./types";
 import { useSelector, useDispatch } from "react-redux";
 import { tokenSelector } from "../../../../redux/slices/authSlice";
+import Parser from "../../../../api/parser";
+import {
+  createInfo,
+  createSuccess,
+  createWarning,
+} from "../../../../redux/slices/alertSlice";
+import { unwrapResult } from "@reduxjs/toolkit";
 
-const ExcelReader = ({ label, id, createMany, deleteAll }) => {
+const ExcelReader = ({ label, id, type, createMany, deleteAll }) => {
   const token = useSelector(tokenSelector);
   const dispatch = useDispatch();
+  const parser = new Parser();
   const [data, setData] = useState({
     file: null,
     fileName: "",
@@ -76,14 +84,16 @@ const ExcelReader = ({ label, id, createMany, deleteAll }) => {
     });
   };
   const submit = () => {
-    console.log("uploading data");
-    dispatch(createMany({ token, data: data.data })).then(() => {
-      reset();
-    });
+    dispatch(createInfo("Uploading " + data.fileName));
+    dispatch(createMany({ token, data: parser.parseMany(data.data, type) }))
+      .then(unwrapResult)
+      .then(() => {
+        reset();
+      });
   };
 
   const deleteMany = () => {
-    console.log("deleting");
+    dispatch(createWarning("Deleting all " + type + "s"));
     dispatch(deleteAll(token)).then(() => {
       deleteStateOff();
     });

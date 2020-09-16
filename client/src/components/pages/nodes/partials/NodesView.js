@@ -18,9 +18,9 @@ const NodesView = ({ handleRemove, handleUpdate }) => {
       ? nodes
           .filter(
             (n) =>
-              n["Node Name"].toLowerCase().includes(filter.toLowerCase()) ||
-              n["IP-adrress"].toLowerCase().includes(filter.toLowerCase()) ||
-              n["Serial-nbr"].toLowerCase().includes(filter.toLowerCase())
+              n.name.toLowerCase().includes(filter.toLowerCase()) ||
+              n.ip.toLowerCase().includes(filter.toLowerCase()) ||
+              n.serial.toLowerCase().includes(filter.toLowerCase())
           )
           .reverse()
       : [];

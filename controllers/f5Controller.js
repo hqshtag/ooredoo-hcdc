@@ -8,17 +8,17 @@ const LoadBalancer = require("../models/LoadBalancer");
 
 
 exports.create = async (req, res) => {
-    const { hostname, IP, Destination, Pool, Member1, Member2 } = req.body;
+    const { hostname, ip, virtual_server, destination, pool, member1, member2 } = req.body;
     let f5 = new LoadBalancer({
-        hostname, IP, Destination, Pool, Member1, Member2
+        hostname, ip, virtual_server, destination, pool, member1, member2
     });
-    f5["Virtuel Server"] = req.body["Virtuel Server"];
 
-    if (req.body.VS_Availability) f5.VS_Availability = req.body.VS_Availability;
-    if (req.body.Mbr1_Availability) f5.Mbr1_Availability = req.body.Mbr1_Availability;
-    if (req.body.Node1_Availability) f5.Node1_Availability = req.body.Node1_Availability;
-    if (req.body.Mbr2_Availability) f5.Mbr2_Availability = req.body.Mbr2_Availability;
-    if (req.body.Node2_Availability) f5.Node2_Availability = req.body.Node2_Availability;
+
+    if (req.body.vs_availability) f5.vs_availability = req.body.vs_availability;
+    if (req.body.mbr1_availability) f5.mbr1_availability = req.body.mbr1_availability;
+    if (req.body.node1_availability) f5.node1_availability = req.body.node1_availability;
+    if (req.body.mbr2_availability) f5.mbr2_availability = req.body.mbr2_availability;
+    if (req.body.node2_availability) f5.node2_availability = req.body.node2_availability;
 
 
     await f5.save((err) => {
@@ -40,13 +40,14 @@ exports.create = async (req, res) => {
 
 exports.createMany = async (req, res) => {
     const { data } = req.body;
+    //console.log(data.length);
     const result = [];
     data.forEach(async e => {
         f5 = new LoadBalancer(e);
         result.push(await f5.save())
     });
 
-    console.log(result);
+    //console.log(result);
     Promise.all(result).then(() => {
         return res.status(200).json({
             status: "success",
@@ -77,17 +78,17 @@ exports.update = async (req, res) => {
             });
         } else {
             if (req.body.hostname) f5.hostname = req.body.hostname;
-            if (req.body.IP) f5.IP = req.body.IP;
-            if (req.body["Virtuel Server"]) f5["Virtuel Server"] = req.body["Virtuel Server"];
-            if (req.body.Destination) f5.Destination = req.body.Destination;
-            if (req.body.Pool) f5.Pool = req.body.Pool;
-            if (req.body.Member1) f5.Member1 = req.body.Member1;
-            if (req.body.Member2) f5.Member2 = req.body.Member2;
-            if (req.body.VS_Availability) f5.VS_Availability = req.body.VS_Availability;
-            if (req.body.Mbr1_Availability) f5.Mbr1_Availability = req.body.Mbr1_Availability;
-            if (req.body.Node1_Availability) f5.Node1_Availability = req.body.Node1_Availability;
-            if (req.body.Mbr2_Availability) f5.Mbr2_Availability = req.body.Mbr2_Availability;
-            if (req.body.Node2_Availability) f5.Node2_Availability = req.body.Node2_Availability;
+            if (req.body.ip) f5.ip = req.body.ip;
+            if (req.body.virtual_server) f5.virtual_server = req.body.virtual_server;
+            if (req.body.destination) f5.destination = req.body.destination;
+            if (req.body.pool) f5.pool = req.body.pool;
+            if (req.body.member1) f5.member1 = req.body.member1;
+            if (req.body.member2) f5.member2 = req.body.member2;
+            if (req.body.vs_availability) f5.vs_availability = req.body.vs_availability;
+            if (req.body.mbr1_availability) f5.mbr1_availability = req.body.mbr1_availability;
+            if (req.body.node1_availability) f5.node1_availability = req.body.node1_availability;
+            if (req.body.mbr2_availability) f5.mbr2_availability = req.body.mbr2_availability;
+            if (req.body.node2_availability) f5.node2_availability = req.body.node2_availability;
 
             await f5.save((err) => {
                 if (err) {

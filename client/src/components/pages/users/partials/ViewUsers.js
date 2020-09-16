@@ -14,6 +14,9 @@ const ViewUsers = ({ handleRemove }) => {
     <div className="users-list">
       <h3>Registred Users:</h3>
       {cards}
+      {users.length == 0 && (
+        <span className="users-note">No users found in the Database</span>
+      )}
     </div>
   );
 };

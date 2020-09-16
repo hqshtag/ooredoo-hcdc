@@ -11,7 +11,12 @@
     background: white;
     padding: 20px 10px;
     border-radius: 15px;
-
+    > h4 {
+      position: absolute;
+      top: 50%;
+      right: 39%;
+      color: $dark;
+    }
     input.search-field {
       float: none;
       width: 360px;
@@ -22,13 +27,14 @@
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
+
       // background: palegreen;
       .f5-card {
         background: lighten(#e81818, 19);
         margin: 5px;
         padding: 10px;
-        width: 250px;
-        min-height: 160px;
+        width: 360px;
+        min-height: 180px;
         border-radius: 9px;
         font-size: 13px;
         transition: all 120ms ease-in-out;

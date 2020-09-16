@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { user_login, check_token } from "../../api/users";
+import { user_login, check_token, change_password } from "../../api/users";
 
 export const login = createAsyncThunk(
   "auth/login",
@@ -23,6 +23,17 @@ export const checkToken = createAsyncThunk(
   }
 );
 
+export const changePassword = createAsyncThunk(
+  "auth/change",
+  async ({ token, data }, { rejectWithValue }) => {
+    try {
+      return await change_password(token, data);
+    } catch (err) {
+      return rejectWithValue(err);
+    }
+  }
+);
+
 const initialState = {
   isLoggedIn: false,
   token: null,
@@ -40,6 +51,9 @@ const authSlice = createSlice({
       state.token = null;
       state.current = null;
       state.isLoggedIn = false;
+    },
+    clearErrors(state) {
+      state.errors = [];
     },
   },
   extraReducers: {
@@ -81,10 +95,15 @@ const authSlice = createSlice({
 
       localStorage.removeItem("jwt");
     },
+    [changePassword.rejected]: (state, action) => {
+      let err = action.payload.response.data.message;
+      state.status = "rejected";
+      state.errors.push(err);
+    },
   },
 });
 
-export const { logout } = authSlice.actions;
+export const { logout, clearErrors } = authSlice.actions;
 
 export const isLoggedInSelector = (state) => state.auth.isLoggedIn;
 export const tokenSelector = (state) => state.auth.token;

@@ -8,6 +8,7 @@ import "./assets/styles/stylesheet.css";
 import { useSelector, useDispatch } from "react-redux";
 import { isLoggedInSelector, checkToken } from "./redux/slices/authSlice";
 import Usermenu from "./components/layout/Usermenu";
+import AlertPanel from "./components/layout/Alert/AlertPanel";
 
 function App() {
   const [activeMenu, setActiveMenu] = useState({
@@ -77,6 +78,7 @@ function App() {
           )}
         </div>
       </div>
+      <AlertPanel />
       <Footer />{" "}
     </>
   );

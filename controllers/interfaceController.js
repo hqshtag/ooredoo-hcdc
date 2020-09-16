@@ -6,9 +6,8 @@ const Interface = require("../models/Interface");
 
 
 exports.create = async (req, res) => {
-    const { ip, interface, Rx, Tx, BW, Input_taille, Output_taille } = req.body;
-    let newInterface = new Interface({ ip, interface, Rx, Tx, BW, Input_taille, Output_taille });
-    newInterface["Switch Name"] = req.body["Switch Name"];
+    const { node, ip, interface, Rx, Tx, BW, input_size, output_size } = req.body;
+    let newInterface = new Interface({ node, ip, interface, Rx, Tx, BW, input_size, output_size });
     if (req.body.state) newInterface.state = req.body.state;
     await newInterface.save((err) => {
         if (err) {
@@ -63,15 +62,15 @@ exports.update = async (req, res) => {
                 message: "Interface Not Found!",
             });
         } else {
-            if (req.body["Switch Name"]) doc["Switch Name"] = req.body["Switch Name"];
+            if (req.body.node) doc.node = req.body.node;
             if (req.body.ip) doc.ip = req.body.ip;
             if (req.body.interface) doc.interface = req.body.interface;
             if (req.body.state) doc.state = req.body.state;
             if (req.body.Rx) doc.Rx = req.body.Rx;
             if (req.body.Tx) doc.Tx = req.body.Tx;
             if (req.body.BW) doc.BW = req.body.BW;
-            if (req.body.Input_taille) doc.Input_taille = req.body.Input_taille;
-            if (req.body.Output_taille) doc.Output_taille = req.body.Output_taille;
+            if (req.body.input_size) doc.input_size = req.body.input_size;
+            if (req.body.output_size) doc.output_size = req.body.output_size;
 
             await doc.save((err) => {
                 if (err) {

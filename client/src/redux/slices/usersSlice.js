@@ -6,7 +6,7 @@ const initialState = {
   status: "idle",
   list: [],
   selected: undefined,
-  errors: [],
+  error: null,
 };
 
 export const addUser = createAsyncThunk(
@@ -45,7 +45,11 @@ export const removeUser = createAsyncThunk(
 const usersSlice = createSlice({
   name: "users",
   initialState,
-  reducers: () => {},
+  reducers: {
+    clearError(state) {
+      state.error = null;
+    },
+  },
   extraReducers: {
     [addUser.pending]: (state) => {
       state.status = "loading";
@@ -57,13 +61,14 @@ const usersSlice = createSlice({
     [addUser.rejected]: (state, action) => {
       console.log(action);
       state.status = "rejected";
+      state.error = action.payload.response.data.message;
     },
     [getAll.pending]: (state) => {
       state.status = "loading";
     },
     [getAll.fulfilled]: (state, action) => {
       let users = action.payload.data.payload;
-      state.status = "success";
+      state.status = "users loaded";
       state.list = users;
     },
     [getAll.rejected]: (state) => {
@@ -80,6 +85,8 @@ const usersSlice = createSlice({
     },
   },
 });
+
+export const { clearError } = usersSlice.actions;
 
 export const usersSelector = (state) => state.users.list;
 export default usersSlice.reducer;

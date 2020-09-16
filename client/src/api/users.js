@@ -46,3 +46,11 @@ export const remove_user = async (id, token) => {
   };
   return await axios.delete(url, config);
 };
+
+export const change_password = async (token, data) => {
+  let url = `${baseurl}/changeme`;
+  let config = {
+    headers: { authorization: `Bearer ${token}` },
+  };
+  return await axios.patch(url, data, config);
+};

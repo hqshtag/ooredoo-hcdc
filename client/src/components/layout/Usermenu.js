@@ -29,7 +29,6 @@ const Usermenu = ({ handleMenuNavigation }) => {
       >
         <Nodes /> Nodes
       </button>
-
       <button
         className="btn user-menu-btn"
         data-key="interfaces"
@@ -44,16 +43,13 @@ const Usermenu = ({ handleMenuNavigation }) => {
       >
         <Errors /> Errors
       </button>
-      {role === "admin" && (
-        <button
-          className="btn user-menu-btn"
-          data-key="settings"
-          onClick={handleMenuNavigation}
-        >
-          <Settings /> Settings
-        </button>
-      )}
-
+      <button
+        className="btn user-menu-btn"
+        data-key="settings"
+        onClick={handleMenuNavigation}
+      >
+        <Settings /> Settings
+      </button>
       <h4>Logged in as: {username}</h4>
       <h5>Access Rights: {accessRights}</h5>
     </div>

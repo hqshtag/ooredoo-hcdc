@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { getAll, remove, update } from "../../../redux/slices/nodeSlice";
 import { tokenSelector } from "../../../redux/slices/authSlice";
 import NodesView from "./partials/NodesView";
+import { unwrapResult } from "@reduxjs/toolkit";
+import { createInfo, createWarning } from "../../../redux/slices/alertSlice";
 
 const Nodes = () => {
   const dispatch = useDispatch();
@@ -10,15 +12,21 @@ const Nodes = () => {
   const token = useSelector(tokenSelector);
 
   const handleRemove = (id) => {
-    dispatch(remove({ id, token })).then(() => {
-      dispatch(getAll(token));
-    });
+    dispatch(remove({ id, token }))
+      .then(unwrapResult)
+      .then(() => {
+        dispatch(createWarning("Node deleted!"));
+        dispatch(getAll(token));
+      });
   };
 
   const handleUpdate = (id, data) => {
-    dispatch(update({ data, id, token })).then(() => {
-      dispatch(getAll(token));
-    });
+    dispatch(update({ data, id, token }))
+      .then(unwrapResult)
+      .then(() => {
+        dispatch(createInfo("Node Updated!"));
+        dispatch(getAll(token));
+      });
   };
 
   useEffect(() => {

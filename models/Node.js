@@ -4,20 +4,20 @@ const Schema = mongoose.Schema;
 
 const nodeSchema = new Schema(
     {
-        "Node Name": {
+        name: {
             type: String,
             required: true
         },
-        "IP-adrress": {
+        ip: {
             type: String,
             required: true
         },
-        Type: {
+        type: {
             type: String,
             required: true
         },
         version: String,
-        "Serial-nbr": String,
+        serial: String,
 
     },
     {

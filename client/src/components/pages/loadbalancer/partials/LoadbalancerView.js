@@ -15,15 +15,15 @@ const LoadbalancerView = () => {
       ? loadbalancers.filter(
           (f5) =>
             f5.hostname.toLowerCase().includes(filter.toLowerCase()) ||
-            f5["Virtuel Server"].toLowerCase().includes(filter.toLowerCase()) ||
-            f5.Pool.toLowerCase().includes(filter.toLowerCase()) ||
-            f5.Member1.toLowerCase().includes(filter.toLowerCase()) ||
-            f5.Member2.toLowerCase().includes(filter.toLowerCase()) ||
-            f5.IP.includes(filter) ||
-            f5.Destination.includes(filter)
+            f5.virtual_server.toLowerCase().includes(filter.toLowerCase()) ||
+            f5.pool.toLowerCase().includes(filter.toLowerCase()) ||
+            f5.member1.toLowerCase().includes(filter.toLowerCase()) ||
+            f5.member2.toLowerCase().includes(filter.toLowerCase()) ||
+            f5.ip.includes(filter) ||
+            f5.destination.includes(filter)
         )
       : [];
-  console.log(filteredF5s);
+  //console.log(filteredF5s);
   const cards =
     filteredF5s.length > 0
       ? filteredF5s.map((f5, key) => {
@@ -38,6 +38,7 @@ const LoadbalancerView = () => {
         placeholder={"Search by Name, Ips, Members ..."}
       />
       <div className="cards-container">{cards}</div>
+      {!cards && <h4>Woops no F5 loadbalancers found</h4>}
     </div>
   );
 };

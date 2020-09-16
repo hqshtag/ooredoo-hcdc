@@ -18,5 +18,8 @@ div.user-menu {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    svg {
+      fill: white;
+    }
   }
 }

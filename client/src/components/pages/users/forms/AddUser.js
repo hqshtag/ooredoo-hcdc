@@ -1,10 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addUser, getAll } from "../../../../redux/slices/usersSlice";
+import {
+  addUser,
+  getAll,
+  clearError as clearUsersError,
+} from "../../../../redux/slices/usersSlice";
 import { tokenSelector } from "../../../../redux/slices/authSlice";
+import { createError, createInfo } from "../../../../redux/slices/alertSlice";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 const AddUser = () => {
   const token = useSelector(tokenSelector);
+  const error = useSelector((state) => state.users.error);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handlePasswordChange = (e) => {
@@ -24,13 +31,23 @@ const AddUser = () => {
     e.preventDefault();
     if (canSubmit) {
       console.log("adding user");
-      dispatch(addUser({ username, password, token })).then(() => {
-        dispatch(getAll(token));
-        clear();
-      });
+      dispatch(addUser({ username, password, token }))
+        .then(unwrapResult)
+        .then(() => {
+          clear();
+          dispatch(createInfo(`${username} registered`));
+          dispatch(getAll(token));
+        });
     }
     console.log("you can't");
   };
+
+  useEffect(() => {
+    if (error) {
+      dispatch(createError(error));
+      dispatch(clearUsersError());
+    }
+  }, [error]);
 
   const canSubmit = username !== "" && password.length >= 4;
   return (

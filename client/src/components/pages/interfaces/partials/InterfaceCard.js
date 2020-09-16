@@ -3,18 +3,19 @@ import { ReactComponent as UP } from "../../../../assets/icons/up-arrow.svg";
 import { ReactComponent as DOWN } from "../../../../assets/icons/down-arrow.svg";
 import { useDispatch } from "react-redux";
 import { select } from "../../../../redux/slices/interfaceSlice";
-import InterfaceChart from "./InterfaceChart";
+//import InterfaceChart from "./InterfaceChart";
 
 const InterfaceCard = ({ data }) => {
   const {
+    node,
     interface: interfaceName,
     ip,
     state,
-    Rx,
+    /* Rx,
     Tx,
     BW,
     Input_taille,
-    Output_taille,
+    Output_taille, */
   } = data;
 
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const InterfaceCard = ({ data }) => {
       <div className="names">
         <h2>{interfaceName}</h2>
         <h3>
-          <span>Node:</span> {data["Switch Name"]}
+          <span>Node:</span> {node}
         </h3>
       </div>
       <div id="IP">

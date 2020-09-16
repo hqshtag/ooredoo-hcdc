@@ -221,6 +221,10 @@ div.user-menu .user-menu-btn {
           align-items: center;
 }
 
+div.user-menu .user-menu-btn svg {
+  fill: white;
+}
+
 .tabs-container .tab {
   display: none;
 }
@@ -290,7 +294,7 @@ div.users-management div.users-list {
   background: #f3f2f2;
   width: 300px;
   height: auto;
-  max-height: 280px;
+  max-height: 27vh;
   padding: 7px 10px;
   padding-top: 0;
   overflow-y: auto;
@@ -312,6 +316,10 @@ div.users-management div.users-list h3 {
   width: 289px;
   border-top-left-radius: 12px;
   height: 24px;
+}
+
+div.users-management div.users-list span.users-note {
+  margin-top: 27px;
 }
 
 div.users-management div.users-list div.user-card {
@@ -518,6 +526,42 @@ div.nodes-page .nodes-view .node-card .buttons button {
   background: #ededed;
   padding: 20px 10px;
   border-radius: 15px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.interfaces-page .interfaces-view > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.interfaces-page .interfaces-view > div select {
+  margin: 5px;
+  padding-left: 5px;
+  border: 1px solid #c5c5c5;
+  border-radius: 9px;
+  height: 27px;
+}
+
+.interfaces-page .interfaces-view > div select option {
+  color: #535353;
+}
+
+.interfaces-page .interfaces-view > div select:focus {
+  outline: none;
+  border: 2px solid #c5c5c5;
+}
+
+.interfaces-page .interfaces-view h4 {
+  margin-top: 40%;
+  text-align: center;
 }
 
 .interfaces-page .interfaces-view .interface-card {
@@ -612,6 +656,13 @@ div.nodes-page .nodes-view .node-card .buttons button {
   border-radius: 15px;
 }
 
+.f5-page .f5-view > h4 {
+  position: absolute;
+  top: 50%;
+  right: 39%;
+  color: #535353;
+}
+
 .f5-page .f5-view input.search-field {
   float: none;
   width: 360px;
@@ -636,8 +687,8 @@ div.nodes-page .nodes-view .node-card .buttons button {
   background: #f17070;
   margin: 5px;
   padding: 10px;
-  width: 250px;
-  min-height: 160px;
+  width: 360px;
+  min-height: 180px;
   border-radius: 9px;
   font-size: 13px;
   -webkit-transition: all 120ms ease-in-out;
@@ -738,7 +789,7 @@ div.nodes-page .nodes-view .node-card .buttons button {
   width: 500px;
   height: 30vh;
   background: white;
-  margin: 0px 10px;
+  margin: 0px 10px 10px;
   border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -846,6 +897,35 @@ div.nodes-page .nodes-view .node-card .buttons button {
   bottom: 5px;
 }
 
+.settings-page .user-settings {
+  width: 500px;
+  height: 27vh;
+  background: white;
+  margin: 0px 10px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.settings-page .user-settings h4 {
+  margin-bottom: 10px;
+}
+
+.settings-page .user-settings input {
+  margin: 5px;
+}
+
 form.user-login {
   width: 600px;
   height: 270px;
@@ -915,5 +995,113 @@ input.search-field {
 input.search-field:focus {
   outline: none;
   border: 2px solid #c5c5c5;
+}
+
+div.alert-card {
+  position: absolute;
+  right: -360px;
+  bottom: 150px;
+  z-index: 100;
+  min-height: 72px;
+  min-width: 270px;
+  max-height: 100px;
+  max-width: 360px;
+  cursor: pointer;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 3px 15px;
+  opacity: 0;
+  -webkit-transition: opacity 100ms ease, -webkit-transform 250ms ease-in;
+  transition: opacity 100ms ease, -webkit-transform 250ms ease-in;
+  transition: transform 250ms ease-in, opacity 100ms ease;
+  transition: transform 250ms ease-in, opacity 100ms ease, -webkit-transform 250ms ease-in;
+}
+
+div.alert-card.in {
+  opacity: 1;
+  -webkit-transform: translateX(-396px);
+          transform: translateX(-396px);
+  -webkit-transition: opacity 200ms ease-out, -webkit-transform 300ms ease-out;
+  transition: opacity 200ms ease-out, -webkit-transform 300ms ease-out;
+  transition: transform 300ms ease-out, opacity 200ms ease-out;
+  transition: transform 300ms ease-out, opacity 200ms ease-out, -webkit-transform 300ms ease-out;
+}
+
+div.alert-card.out {
+  opacity: 0;
+  -webkit-transform: translateX(400px);
+          transform: translateX(400px);
+}
+
+div.alert-card.warning {
+  background-color: rgba(255, 239, 153, 0.42);
+}
+
+div.alert-card.warning svg {
+  fill: #eab52f;
+}
+
+div.alert-card.warning label {
+  color: #eab52f;
+}
+
+div.alert-card.error {
+  background-color: rgba(255, 153, 153, 0.47);
+}
+
+div.alert-card.error svg {
+  fill: #f54141;
+}
+
+div.alert-card.error label {
+  color: #f54141;
+}
+
+div.alert-card.success {
+  background-color: rgba(155, 255, 153, 0.5);
+}
+
+div.alert-card.success svg {
+  fill: #41d67f;
+}
+
+div.alert-card.success label {
+  color: #41d67f;
+}
+
+div.alert-card.info {
+  background-color: rgba(153, 224, 255, 0.42);
+}
+
+div.alert-card.info svg {
+  fill: #18a3df;
+}
+
+div.alert-card.info label {
+  color: #18a3df;
+}
+
+div.alert-card svg {
+  height: 30px;
+  width: 30px;
+  padding: 10px;
+  margin: 7px;
+}
+
+div.alert-card label {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 17px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin-left: 19px;
 }
 /*# sourceMappingURL=stylesheet.css.map */

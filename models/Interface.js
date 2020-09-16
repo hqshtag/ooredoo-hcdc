@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const interfaceSchema = new Schema(
     {
-        "Switch Name": {
+        node: {
             type: String,
             //  required: true
         },
@@ -18,11 +18,11 @@ const interfaceSchema = new Schema(
             enum: ["up", "down"],
             default: "up",
         },
-        Rx: String,
-        Tx: String,
-        BW: String,
-        Input_taille: String,
-        Output_taille: String,
+        Rx: Number,
+        Tx: Number,
+        BW: Number,
+        input_size: Number,
+        output_size: Number,
 
     },
     {

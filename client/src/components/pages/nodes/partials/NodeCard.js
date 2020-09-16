@@ -6,20 +6,20 @@ import { ReactComponent as Check } from "../../../../assets/icons/check.svg";
 const NodeCard = ({ node, handleRemove, handleUpdate, admin = false }) => {
   const [manage, setManage] = useState(false);
   const [fields, setFields] = useState({
-    "Node Name": "",
-    "IP-adrress": "",
-    Type: "",
+    name: "",
+    ip: "",
+    type: "",
     version: "",
-    "Serial-nbr": "",
+    serial: "",
   });
 
   useEffect(() => {
     setFields({
-      "Node Name": node["Node Name"],
-      "IP-adrress": node["IP-adrress"],
-      Type: node.Type,
+      name: node.name,
+      ip: node.ip,
+      type: node.type,
       version: node.version,
-      "Serial-nbr": node["Serial-nbr"],
+      serial: node.serial,
     });
   }, [node]);
 
@@ -39,24 +39,24 @@ const NodeCard = ({ node, handleRemove, handleUpdate, admin = false }) => {
       <Field
         label="Node name"
         className="name-field reverse"
-        name="Node Name"
-        value={fields["Node Name"]}
+        name="name"
+        value={fields.name}
         manage={manage}
         onChange={handleChange}
       />
       <Field
         label="IP"
-        name="IP-adrress"
+        name="ip"
         className="ip-field"
-        value={fields["IP-adrress"]}
+        value={fields.ip}
         manage={manage}
         onChange={handleChange}
       />
       <Field
         label="Type"
-        name="Type"
+        name="type"
         className="type-field reverse"
-        value={fields["Type"]}
+        value={fields.type}
         manage={manage}
         onChange={handleChange}
       />
@@ -64,7 +64,7 @@ const NodeCard = ({ node, handleRemove, handleUpdate, admin = false }) => {
         label="Version"
         name="version"
         className="version-field"
-        value={fields["version"]}
+        value={fields.version}
         manage={manage}
         onChange={handleChange}
       />
@@ -72,7 +72,7 @@ const NodeCard = ({ node, handleRemove, handleUpdate, admin = false }) => {
         label="Serial Number"
         name="Serial-nbr"
         className="serial-field reverse"
-        value={fields["Serial-nbr"]}
+        value={fields.serial}
         manage={manage}
         onChange={handleChange}
       />

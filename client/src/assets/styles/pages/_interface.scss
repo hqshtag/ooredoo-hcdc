@@ -31,6 +31,31 @@
     background: $edGray;
     padding: 20px 10px;
     border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      select {
+        margin: 5px;
+        padding-left: 5px;
+        border: 1px solid $c5Gray;
+        border-radius: 9px;
+        height: 27px;
+        option {
+          color: $dark;
+        }
+        &:focus {
+          outline: none;
+          border: 2px solid $c5Gray;
+        }
+      }
+    }
+    h4 {
+      margin-top: 40%;
+      text-align: center;
+    }
     .interface-card {
       cursor: pointer;
       position: relative;

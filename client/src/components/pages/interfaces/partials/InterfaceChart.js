@@ -7,8 +7,8 @@ const InterfaceChart = ({ inter }) => {
     Rx,
     Tx,
     BW,
-    Output_taille,
-    Input_taille,
+    input_size,
+    output_size,
   } = inter;
   //console.log(inter);
   const data = {
@@ -37,7 +37,7 @@ const InterfaceChart = ({ inter }) => {
     datasets: [
       {
         label: "Bits",
-        data: [parseInt(Output_taille), parseInt(Input_taille)],
+        data: [parseInt(output_size), parseInt(input_size)],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",

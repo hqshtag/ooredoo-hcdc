@@ -109,6 +109,9 @@ const interfaceSlice = createSlice({
     [update.rejected]: (state) => {
       state.status = "rejected";
     },
+    [deleteAll.fulfilled]: (state) => {
+      state.selected = null;
+    },
   },
 });
 

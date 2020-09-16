@@ -5,6 +5,7 @@ import UsersReducer from "./slices/usersSlice";
 import NodeReducer from "./slices/nodeSlice";
 import F5Reducer from "./slices/f5Slice";
 import InterfaceReducer from "./slices/interfaceSlice";
+import AlertReducer from "./slices/alertSlice";
 
 export default configureStore({
   middleware: getDefaultMiddleware({
@@ -13,6 +14,7 @@ export default configureStore({
     },
   }),
   reducer: {
+    alerts: AlertReducer,
     auth: AuthReducer,
     users: UsersReducer,
     node: NodeReducer,

@@ -3,11 +3,9 @@ const Node = require("../models/Node");
 
 
 exports.create = async (req, res) => {
-    const { Type, version } = req.body;
-    let newNode = new Node({ Type, version });
-    newNode["Node Name"] = req.body["Node Name"];
-    newNode["IP-adrress"] = req.body["IP-adrress"];
-    newNode["Serial-nbr"] = req.body["Serial-nbr"];
+    const { name, ip, type, version, serial } = req.body;
+    let newNode = new Node({ name, ip, type, version, serial });
+
 
     await newNode.save((err) => {
         if (err) {
@@ -61,10 +59,10 @@ exports.update = async (req, res) => {
                 message: "Interface Not Found!",
             });
         } else {
-            if (req.body["Node Name"]) doc["Node Name"] = req.body["Node Name"];
-            if (req.body["IP-adrress"]) doc["IP-adrress"] = req.body["IP-adrress"];
-            if (req.body["Serial-nbr"]) doc["Serial-nbr"] = req.body["Serial-nbr"];
-            if (req.body.Type) doc.Type = req.body.Type;
+            if (req.body.name) doc.name = req.body.name;
+            if (req.body.ip) doc.ip = req.body.ip;
+            if (req.body.serial) doc.serial = req.body.serial;
+            if (req.body.type) doc.type = req.body.type;
             if (req.body.version) doc.version = req.body.version;
 
             await doc.save((err) => {

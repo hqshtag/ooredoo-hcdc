@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const nodeServices = new Services("node");
 
 const initialState = {
-  list: null,
+  list: [],
   status: "idle",
   selected: null,
   errors: null,
@@ -109,5 +109,16 @@ const nodeSlice = createSlice({
 });
 
 export const nodeSelector = (state) => state.node.list;
-
+export const nodeUniqueNamesSelector = (state) => {
+  let list = state.node.list;
+  if (list && list.length > 0) {
+    return [
+      ...new Set(
+        state.node.list.map((e) => {
+          return e.name;
+        })
+      ),
+    ];
+  } else return [];
+};
 export default nodeSlice.reducer;

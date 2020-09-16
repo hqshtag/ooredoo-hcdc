@@ -14,18 +14,26 @@ import {
 } from "../redux/slices/interfaceSlice";
 import Loadbalancer from "./pages/loadbalancer/Loadbalancer";
 import { unwrapResult } from "@reduxjs/toolkit";
+import { clearErrors as clearAuthErrors } from "../redux/slices/authSlice";
+import { createSuccess } from "../redux/slices/alertSlice";
 
 const Dashboard = ({ activeMenu, token }) => {
   const { nodes, interfaces, errors, loadbalancer, settings } = activeMenu;
 
   const dispatch = useDispatch();
   useEffect(() => {
+    dispatch(clearAuthErrors());
+    dispatch(createSuccess("Logged in"));
     dispatch(getAllUsers(token));
     dispatch(getAllF5(token));
     dispatch(getAllNodes(token));
     dispatch(getAllInterfaces(token))
       .then(unwrapResult)
-      .then((res) => dispatch(selectInterface(res.data.payload[0])));
+      .then((res) => {
+        if (res.data.payload && res.data.payload.length >= 1) {
+          dispatch(selectInterface(res.data.payload[0]));
+        }
+      });
   }, [dispatch, token]);
   return (
     <>

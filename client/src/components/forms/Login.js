@@ -1,8 +1,13 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createError } from "../../redux/slices/alertSlice";
 import { login } from "../../redux/slices/authSlice";
 
 const Login = () => {
+  const dispatch = useDispatch();
+
+  const errors = useSelector((state) => state.auth.errors);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handlePasswordChange = (e) => {
@@ -11,8 +16,13 @@ const Login = () => {
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
+  useEffect(() => {
+    if (errors && errors.length > 0) {
+      dispatch(createError(errors[errors.length - 1]));
+    }
+    //return () => dispatch(clearErrors());
+  }, [dispatch, errors]);
 
-  const dispatch = useDispatch();
   const loginHandler = (e) => {
     e.preventDefault();
     if (canSubmit) {

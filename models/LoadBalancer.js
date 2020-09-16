@@ -8,20 +8,20 @@ const loadBalancerSchema = new Schema(
             type: String,
             // required: true
         },
-        IP: {
+        ip: {
             type: String,
             //  required: true
         },
-        "Virtuel Server": String,
-        VS_Availability: { type: String, enum: ["available", "offline"], default: "available" },
-        Destination: String,
-        Pool: String,
-        Member1: String,
-        Mbr1_Availability: { type: String, enum: ["available", "offline"], default: "available" },
-        Node1_Availability: { type: String, enum: ["available", "offline"], default: "available" },
-        Member2: String,
-        Mbr2_Availability: { type: String, enum: ["available", "offline"], default: "available" },
-        Node2_Availability: { type: String, enum: ["available", "offline"], default: "available" },
+        virtual_server: String,
+        vs_availability: { type: String, enum: ["available", "offline"], default: "available" },
+        destination: String,
+        pool: String,
+        member1: String,
+        mbr1_availability: { type: String, enum: ["available", "offline"], default: "available" },
+        node1_availability: { type: String, enum: ["available", "offline"], default: "available" },
+        member2: String,
+        mbr2_availability: { type: String, enum: ["available", "offline"], default: "available" },
+        node2_availability: { type: String, enum: ["available", "offline"], default: "available" },
 
     },
     {

@@ -3,6 +3,8 @@ export const ignoredActions = [
   "auth/login/rejected",
   "auth/check/fulfilled",
   "auth/check/rejected",
+  "auth/change/fulfilled",
+  "auth/change/rejected",
 
   "users/create/fulfilled",
   "users/create/rejected",
