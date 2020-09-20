@@ -6,6 +6,7 @@ import NodeReducer from "./slices/nodeSlice";
 import F5Reducer from "./slices/f5Slice";
 import InterfaceReducer from "./slices/interfaceSlice";
 import AlertReducer from "./slices/alertSlice";
+import ErrorReducer from "./slices/errorSlice";
 
 export default configureStore({
   middleware: getDefaultMiddleware({
@@ -20,5 +21,6 @@ export default configureStore({
     node: NodeReducer,
     f5: F5Reducer,
     interface: InterfaceReducer,
+    error: ErrorReducer,
   },
 });

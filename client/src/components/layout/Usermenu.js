@@ -1,55 +1,54 @@
 import React from "react";
 
-import { ReactComponent as Nodes } from "../../assets/icons/nodes.svg";
-import { ReactComponent as Errors } from "../../assets/icons/errors.svg";
-import { ReactComponent as Interfaces } from "../../assets/icons/interfaces.svg";
-import { ReactComponent as Settings } from "../../assets/icons/edit.svg";
-import { ReactComponent as LoadBalancer } from "../../assets/icons/loadbalancer.svg";
 import { useSelector } from "react-redux";
 import { currentUserSelector } from "../../redux/slices/authSlice";
+import UserMenuBtn from "../partials/UserMenuBtn";
 
-const Usermenu = ({ handleMenuNavigation }) => {
+const Usermenu = ({ menu, handleMenuNavigation }) => {
   const currentUser = useSelector(currentUserSelector);
   const { username, role } = currentUser;
 
   let accessRights = role === "admin" ? "Super Admin" : "Admin";
+
   return (
     <div className="user-menu">
-      <button
-        className="btn user-menu-btn"
-        data-key="loadbalancer"
+      <UserMenuBtn
+        dataKey="loadbalancer"
+        label="F5 BIG IP"
         onClick={handleMenuNavigation}
-      >
-        <LoadBalancer /> F5 BIG IP
-      </button>
-      <button
-        className="btn user-menu-btn"
-        data-key="nodes"
+        active={menu.loadbalancer}
+      />
+      <UserMenuBtn
+        dataKey="nodes"
+        label="Nodes"
         onClick={handleMenuNavigation}
-      >
-        <Nodes /> Nodes
-      </button>
-      <button
-        className="btn user-menu-btn"
-        data-key="interfaces"
+        active={menu.nodes}
+      />
+      <UserMenuBtn
+        dataKey="interfaces"
+        label="Interfaces"
         onClick={handleMenuNavigation}
-      >
-        <Interfaces /> Interfaces
-      </button>
-      <button
-        className="btn user-menu-btn"
-        data-key="errors"
+        active={menu.interfaces}
+      />
+      <UserMenuBtn
+        dataKey="errors"
+        label="Errors"
         onClick={handleMenuNavigation}
-      >
-        <Errors /> Errors
-      </button>
-      <button
-        className="btn user-menu-btn"
-        data-key="settings"
+        active={menu.errors}
+      />
+      <UserMenuBtn
+        dataKey="alarms"
+        label="Alarms"
         onClick={handleMenuNavigation}
-      >
-        <Settings /> Settings
-      </button>
+        active={menu.alarms}
+      />
+      <UserMenuBtn
+        dataKey="settings"
+        label="Settings"
+        onClick={handleMenuNavigation}
+        active={menu.settings}
+      />
+
       <h4>Logged in as: {username}</h4>
       <h5>Access Rights: {accessRights}</h5>
     </div>

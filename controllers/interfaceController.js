@@ -1,4 +1,5 @@
 const Interface = require("../models/Interface");
+const InterfaceData = require("../models/InterfaceData");
 
 /**
  * CRUD with create many ;)
@@ -6,22 +7,63 @@ const Interface = require("../models/Interface");
 
 
 exports.create = async (req, res) => {
-    const { node, ip, interface, Rx, Tx, BW, input_size, output_size } = req.body;
-    let newInterface = new Interface({ node, ip, interface, Rx, Tx, BW, input_size, output_size });
-    if (req.body.state) newInterface.state = req.body.state;
-    await newInterface.save((err) => {
-        if (err) {
-            //  console.log("ERROR : Load balancer is Not Saved!");
-            return res.status(400).json({
-                status: "Error",
-                message: "database err ",
-            });
+    const { node, ip, interface, Rx, Tx, BW, input_size, output_size } = req.body; // if we have this interface already, we 
+    Interface.find({ node, ip, interface }, async (err, doc) => { //update it  and send previous data to interfaceData;)
+
+        if (doc && doc.length > 0) {
+            let data = await InterfaceData.find({ interface: doc[0]._id });
+            console.log(data);
+            if (!data || data.length === 0) {
+                data = new InterfaceData();
+                data.interface = doc[0]._id;
+                data.bw.push([[doc[0].input_size, doc[0].output_size], Date.now()]);
+                await data.save();
+            } else {
+                data[0].interface = doc[0]._id;
+                data[0].bw.push([[doc[0].input_size, doc[0].output_size], Date.now()]);
+                await data[0].save();
+            }
+
+
+
+            if (Rx) doc[0].Rx = Rx;
+            if (Tx) doc[0].Tx = Tx;
+            if (input_size) doc[0].input_size = input_size;
+            if (output_size) doc[0].output_size = output_size;
+            doc[0].save((err) => {
+                if (err) {
+                    console.log(err);
+                    //console.log("ERROR : Car is Not Saved!");
+                    return res.status(400).json({
+                        status: "Error",
+                        message: "SAVING ERROR",
+                    });
+                } else {
+                    return res.status(200).json({
+                        status: "Success",
+                        message: "Interface updated",
+                    });
+                }
+            })
         } else {
-            //console.log("SUCCESS");
-            return res.status(200).json({
-                status: "Success",
-                message: "New Interface saved",
-            });
+            let newInterface = new Interface({ node, ip, interface, Rx, Tx, BW, input_size, output_size });
+            if (req.body.state) newInterface.state = req.body.state;
+            await newInterface.save((err) => {
+                if (err) {
+                    //  console.log("ERROR : Load balancer is Not Saved!");
+                    return res.status(400).json({
+                        status: "Error",
+                        message: "database err ",
+                    });
+                } else {
+                    //console.log("SUCCESS");
+                    return res.status(200).json({
+                        status: "Success",
+                        message: "New Interface saved",
+                    });
+                }
+            })
+
         }
     })
 
@@ -31,8 +73,36 @@ exports.createMany = async (req, res) => {
     const { data } = req.body;
     const result = [];
     data.forEach(async e => {
-        interfacee = new Interface(e);
-        result.push(await interfacee.save());
+        const { node, ip, interface, Rx, Tx, BW, input_size, output_size } = e;
+        Interface.find({ node, ip, interface }, async (err, doc) => {
+
+            if (doc && doc.length > 0) {
+                let data = await InterfaceData.find({ interface: doc[0]._id });
+                console.log(data);
+                if (!data || data.length === 0) {
+                    data = new InterfaceData();
+                    data.interface = doc[0]._id;
+                    data.bw.push([[doc[0].input_size, doc[0].output_size], Date.now()]);
+                    await data.save();
+                } else {
+                    data[0].interface = doc[0]._id;
+                    data[0].bw.push([[doc[0].input_size, doc[0].output_size], Date.now()]);
+                    await data[0].save();
+                }
+
+
+
+                if (Rx) doc[0].Rx = Rx;
+                if (Tx) doc[0].Tx = Tx;
+                if (input_size) doc[0].input_size = input_size;
+                if (output_size) doc[0].output_size = output_size;
+                result.push(await doc[0].save())
+            } else {
+                interfacee = new Interface(e);
+                result.push(await interfacee.save());
+            }
+        })
+
     })
     Promise.all(result).then(() => {
         return res.status(200).json({

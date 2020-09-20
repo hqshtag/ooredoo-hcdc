@@ -5,6 +5,8 @@ import Errors from "./pages/errors/Errors";
 import Users from "./pages/users/Users";
 import Settings from "./pages/settings/Settings";
 import { useDispatch } from "react-redux";
+
+import { getAll as getAllErrors } from "../redux/slices/errorSlice";
 import { getAll as getAllUsers } from "../redux/slices/usersSlice";
 import { getAll as getAllF5 } from "../redux/slices/f5Slice";
 import { getAll as getAllNodes } from "../redux/slices/nodeSlice";
@@ -27,6 +29,7 @@ const Dashboard = ({ activeMenu, token }) => {
     dispatch(getAllUsers(token));
     dispatch(getAllF5(token));
     dispatch(getAllNodes(token));
+    dispatch(getAllErrors(token));
     dispatch(getAllInterfaces(token))
       .then(unwrapResult)
       .then((res) => {

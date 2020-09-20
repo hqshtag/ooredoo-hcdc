@@ -12,6 +12,7 @@
 @import "./pages/nodes";
 @import "./pages/interface";
 @import "./pages/f5";
+@import "./pages/errors";
 @import "./pages/settings";
 
 @import "./forms/auth_form";
@@ -28,14 +29,14 @@ div.app {
 }
 
 input.search-field {
-  width: 42%;
-  height: 27px;
+  width: 360px;
+  height: 36px;
   font-size: 14px;
   border-radius: 10px;
   border: 1px solid $c5Gray;
   padding: 0px 20px;
   margin: 10px auto;
-  float: right;
+  // float: right;
   &:focus {
     outline: none;
     border: 2px solid $c5Gray;

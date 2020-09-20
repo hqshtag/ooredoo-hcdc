@@ -2,32 +2,29 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const nodeSchema = new Schema(
+const errorSchema = new Schema(
     {
-        name: {
+        node: {
             type: String,
             required: true
         },
-        ip: {
+        interface: {
             type: String,
+            required: true
+        },
+        code: {
+            type: Number,
             required: true
         },
         type: {
             type: String,
-            required: true
-        },
-        version: String,
-        serial: String,
-        cpu: {
-            type: Number,
-            default: 30
+            required: true,
         }
-
     },
     {
         timestamps: true,
     }
 );
 
-const Node = mongoose.model('Node', nodeSchema);
-module.exports = Node;
+const Error = mongoose.model('error', errorSchema);
+module.exports = Error;

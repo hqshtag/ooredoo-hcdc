@@ -16,7 +16,7 @@ function App() {
     interfaces: false,
     errors: false,
     loadbalancer: false,
-
+    alarms: false,
     settings: false,
   });
 
@@ -26,6 +26,7 @@ function App() {
       interfaces: false,
       errors: false,
       loadbalancer: false,
+      alarms: false,
       settings: false,
     });
   };
@@ -38,7 +39,7 @@ function App() {
       interfaces: false,
       errors: false,
       loadbalancer: false,
-
+      alarms: false,
       settings: false,
       [key]: true,
     });
@@ -52,14 +53,28 @@ function App() {
   }, [token, dispatch]);
 
   useEffect(() => {
-    let { nodes, interfaces, errors, settings, loadbalancer } = activeMenu;
-    if (!nodes && !interfaces && !errors && !settings && !loadbalancer) {
+    let {
+      nodes,
+      interfaces,
+      errors,
+      settings,
+      loadbalancer,
+      alarms,
+    } = activeMenu;
+    if (
+      !nodes &&
+      !interfaces &&
+      !errors &&
+      !settings &&
+      !loadbalancer &&
+      !alarms
+    ) {
       setActiveMenu({
         nodes: true,
         interfaces: false,
         errors: false,
         loadbalancer: false,
-
+        alarms: false,
         settings: false,
       });
     }
@@ -69,7 +84,12 @@ function App() {
       {" "}
       <Navbar loggedIn={loggedIn} resetMenu={resetMenu} />
       <div className="app">
-        {loggedIn && <Usermenu handleMenuNavigation={handleMenuNavigation} />}
+        {loggedIn && (
+          <Usermenu
+            menu={activeMenu}
+            handleMenuNavigation={handleMenuNavigation}
+          />
+        )}
         <div className="main-container">
           {!loggedIn ? (
             <Login />

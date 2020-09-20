@@ -41,4 +41,15 @@ export const ignoredActions = [
   "interface/remove/all/rejected",
   "interface/create/many/fulfilled",
   "interface/create/many/rejected",
+
+  "error/getAll/fulfilled",
+  "error/getAll/rejected",
+  "error/remove/fulfilled",
+  "error/remove/rejected",
+  "error/update/fulfilled",
+  "error/update/rejected",
+  "error/remove/all/fulfilled",
+  "error/remove/all/rejected",
+  "error/create/many/fulfilled",
+  "error/create/many/rejected",
 ];

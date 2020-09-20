@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createError } from "../../redux/slices/alertSlice";
 import { login } from "../../redux/slices/authSlice";
+import Input from "../partials/Input";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -31,28 +32,37 @@ const Login = () => {
     }
   };
 
-  const canSubmit = username !== "" && password.length >= 4;
+  const canSubmit = username !== "" && password.length >= 6;
+  const validPassword = password.length >= 6;
+
+  const empty = (str) => {
+    return str.length === 0;
+  };
 
   return (
     <form className="user-login">
-      <input
-        className="form-input"
+      <Input
         type="text"
         placeholder="Username"
         name="username"
-        autoComplete="off"
         onChange={handleUsernameChange}
         value={username}
       />
-      <input
-        className="form-input"
+      <Input
         type="password"
         placeholder="Password"
         name="password"
-        autoComplete="off"
-        value={password}
         onChange={handlePasswordChange}
+        value={password}
+        description={
+          !empty(password)
+            ? validPassword
+              ? ""
+              : "password must be at least 6 characters long"
+            : ""
+        }
       />
+
       <button className="btn" onClick={loginHandler}>
         Login
       </button>

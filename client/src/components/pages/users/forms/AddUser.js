@@ -49,7 +49,8 @@ const AddUser = () => {
     }
   }, [error]);
 
-  const canSubmit = username !== "" && password.length >= 4;
+  const canSubmit = username !== "" && password.length >= 6;
+
   return (
     <form className="add_user">
       <input

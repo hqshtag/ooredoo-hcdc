@@ -1,7 +1,10 @@
 import { unwrapResult } from "@reduxjs/toolkit";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { createError, createInfo } from "../../../../redux/slices/alertSlice";
+import {
+  createError,
+  createSuccess,
+} from "../../../../redux/slices/alertSlice";
 import {
   changePassword,
   clearErrors as clearAuthErrors,
@@ -39,7 +42,7 @@ const UserSettings = () => {
         .then(unwrapResult)
         .then(() => {
           reset();
-          dispatch(createInfo("Password updated"));
+          dispatch(createSuccess("Password updated"));
         });
     } else {
       console.log("cant");

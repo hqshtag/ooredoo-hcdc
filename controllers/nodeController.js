@@ -1,25 +1,62 @@
 const Node = require("../models/Node");
+const NodeData = require("../models/NodeData");
 
 
 
 exports.create = async (req, res) => {
-    const { name, ip, type, version, serial } = req.body;
-    let newNode = new Node({ name, ip, type, version, serial });
+    const { name, ip, type, version, cpu, serial } = req.body;
+    let newNode = new Node({ name, ip, type, version, cpu, serial });
+
+    Node.find({ name, ip, serial }, async (err, doc) => {
+        if (doc && doc.length > 0) {
+            let data = await NodeData.find({ node: doc[0]._id });
+            console.log(data);
+            if (!data || data.length === 0) {
+                data = new NodeData();
+                data.node = doc[0]._id;
+                data.cpu.push([doc[0].cpu, Date.now()]);
+                await data.save();
+            } else {
+                data[0].node = doc[0]._id;
+                data[0].cpu.push([doc[0].cpu, Date.now()]);
+                await data[0].save();
+            }
 
 
-    await newNode.save((err) => {
-        if (err) {
-            //  console.log("ERROR : Load balancer is Not Saved!");
-            return res.status(400).json({
-                status: "Error",
-                message: "database err ",
-            });
+
+            if (cpu) doc[0].cpu = cpu;
+
+            doc[0].save((err) => {
+                if (err) {
+                    console.log(err);
+                    //console.log("ERROR : Car is Not Saved!");
+                    return res.status(400).json({
+                        status: "Error",
+                        message: "SAVING ERROR",
+                    });
+                } else {
+                    return res.status(200).json({
+                        status: "Success",
+                        message: "Node updated",
+                    });
+                }
+            })
         } else {
-            //console.log("SUCCESS");
-            return res.status(200).json({
-                status: "Success",
-                message: "New Node saved",
-            });
+            await newNode.save((err) => {
+                if (err) {
+                    //  console.log("ERROR : Load balancer is Not Saved!");
+                    return res.status(400).json({
+                        status: "Error",
+                        message: "database err ",
+                    });
+                } else {
+                    //console.log("SUCCESS");
+                    return res.status(200).json({
+                        status: "Success",
+                        message: "New Node saved",
+                    });
+                }
+            })
         }
     })
 }
@@ -28,8 +65,30 @@ exports.createMany = async (req, res) => {
     const { data } = req.body;
     const result = [];
     data.forEach(async e => {
-        node = new Node(e);
-        result.push(await node.save());
+        const { name, ip, serial, cpu } = e;
+        //look for node in DB
+        Node.find({ name, ip, serial }, async (err, doc) => {
+            if (doc && doc.length > 0) { //if node found update and send old cpu usage to node datas
+                let data = await NodeData.find({ node: doc[0]._id });
+                console.log(data);
+                if (!data || data.length === 0) {
+                    data = new NodeData();
+                    data.node = doc[0]._id;
+                    data.cpu.push([doc[0].cpu, Date.now()]);
+                    await data.save();
+                } else {
+                    data[0].node = doc[0]._id;
+                    data[0].cpu.push([doc[0].cpu, Date.now()]);
+                    await data[0].save();
+                }
+                if (cpu) doc[0].cpu = cpu;
+                result.push(await doc[0].save());
+            } else {
+                node = new Node(e);
+                result.push(await node.save());
+            }
+        })
+
     })
     Promise.all(result).then(() => {
         return res.status(200).json({
@@ -64,6 +123,7 @@ exports.update = async (req, res) => {
             if (req.body.serial) doc.serial = req.body.serial;
             if (req.body.type) doc.type = req.body.type;
             if (req.body.version) doc.version = req.body.version;
+            if (req.body.cpu) doc.cpu = req.body.cpu;
 
             await doc.save((err) => {
                 if (err) {

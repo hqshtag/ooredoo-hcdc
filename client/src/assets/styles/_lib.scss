@@ -98,6 +98,34 @@
   }
 }
 
+div.input-wrapper {
+  margin: 5px;
+  input.form-input {
+    width: 300px;
+    height: 36px;
+    border-radius: 12px;
+    padding: 3px 20px 0px;
+    border: 1px solid #969696;
+
+    &.medium {
+      width: 180px;
+      height: 27px;
+      border-radius: 7px;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: darken(#969696, 2);
+    }
+  }
+  p.input-description {
+    color: $red;
+    font-size: 12px;
+    margin-left: 20px;
+    margin-top: -8px;
+  }
+}
+
 input.form-input {
   width: 300px;
   height: 36px;

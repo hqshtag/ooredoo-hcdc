@@ -20,6 +20,11 @@ app.use("/api/users", require("./routes/user_router"));
 app.use("/api/f5", require("./routes/f5_router"));
 app.use("/api/interface", require("./routes/interface_router"))
 app.use("/api/node", require("./routes/node_router"));
+app.use("/api/error", require("./routes/error_router"));
+app.use("/api/alarm", require("./routes/alarm_router"));
+app.use("/api/data", require("./routes/data_router"));
+app.use('/api/config', require("./routes/settings_router"));
+
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
