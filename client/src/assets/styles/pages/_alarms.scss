@@ -1,0 +1,32 @@
+div.alarms-page {
+  display: flex;
+  align-items: center;
+  div.charts-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h3 {
+      text-align: center;
+      margin: 12px;
+    }
+    background: white;
+    height: 70vh;
+    padding: 20px 10px;
+    align-self: baseline;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+  }
+  div.alarms-view {
+    position: relative;
+    height: 70vh;
+    // min-height: 800px;
+    overflow-y: auto;
+    width: 570px;
+    background: $edGray;
+    padding: 20px 10px;
+    border-radius: 15px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

@@ -7,6 +7,8 @@ import {
 } from "../../../redux/slices/interfaceSlice";
 import { tokenSelector } from "../../../redux/slices/authSlice";
 import InterfaceChart from "./partials/InterfaceChart";
+import { getInterfaceData } from "../../../redux/slices/dataSlice";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 const Interfaces = () => {
   const dispatch = useDispatch();
@@ -14,7 +16,11 @@ const Interfaces = () => {
   const selected = useSelector(selectedInterfaceSelector);
 
   useEffect(() => {
-    dispatch(getAll(token));
+    dispatch(getAll(token))
+      .then(unwrapResult)
+      .then(() => {
+        dispatch(getInterfaceData(token));
+      });
   }, [dispatch, token]);
 
   return (

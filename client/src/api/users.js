@@ -54,3 +54,8 @@ export const change_password = async (token, data) => {
   };
   return await axios.patch(url, data, config);
 };
+
+export const bootstrap = async () => {
+  let url = `http://localhost:5000/api/bootstrap`;
+  return await axios.get(url);
+};

@@ -1,6 +1,8 @@
+const Alarm = require("../models/Alarm");
 const Node = require("../models/Node");
 const NodeData = require("../models/NodeData");
-
+const Settings = require("../models/Settings");
+const { create_cpu_overclock_alarm } = require("./alarmController");
 
 
 exports.create = async (req, res) => {
@@ -67,24 +69,49 @@ exports.createMany = async (req, res) => {
     data.forEach(async e => {
         const { name, ip, serial, cpu } = e;
         //look for node in DB
-        Node.find({ name, ip, serial }, async (err, doc) => {
-            if (doc && doc.length > 0) { //if node found update and send old cpu usage to node datas
-                let data = await NodeData.find({ node: doc[0]._id });
-                console.log(data);
+        Node.findOne({ name, ip, serial }, async (err, doc) => {
+            if (doc) { //if node found update and send old cpu usage to node datas & create alarm if needed
+                //check if cpu overclock and create alarm of so
+                console.log(doc);
+                /*  try {
+                     Settings.findOne({}, async (err, res) => {
+                         if (err) throw err;
+                         else {
+                             const { oc } = res;
+ 
+                             if (cpu >= oc) {
+                                 let newAlarm = new Alarm({ type: "CPU-OC", node: doc._id, value: cpu })
+                                 await newAlarm.save();
+                             }
+                         }
+                     });
+                 } catch (err) {
+                     res.status(400).json({ status: 'Error', message: 'database error' });
+                 } */
+
+
+                if (!create_cpu_overclock_alarm(doc._id, cpu)) {
+                    res.status(400).json({ status: 'Error', message: 'database error' })
+                };
+                let data = await NodeData.findOne({ node: doc._id });
                 if (!data || data.length === 0) {
                     data = new NodeData();
-                    data.node = doc[0]._id;
-                    data.cpu.push([doc[0].cpu, Date.now()]);
+                    data.node = doc._id;
+                    data.cpu.push([doc.cpu, Date.now()]);
                     await data.save();
                 } else {
-                    data[0].node = doc[0]._id;
-                    data[0].cpu.push([doc[0].cpu, Date.now()]);
-                    await data[0].save();
+                    data.node = doc._id;
+                    data.cpu.push([doc.cpu, Date.now()]);
+
+
+
+                    await data.save();
                 }
-                if (cpu) doc[0].cpu = cpu;
-                result.push(await doc[0].save());
+                if (cpu) doc.cpu = cpu;
+                result.push(await doc.save());
             } else {
                 node = new Node(e);
+                create_cpu_overclock_alarm(node._id, e.cpu);
                 result.push(await node.save());
             }
         })
@@ -102,6 +129,8 @@ exports.createMany = async (req, res) => {
         })
     })
 }
+
+
 
 exports.update = async (req, res) => {
     Node.findById(req.params.id, async (err, doc) => {
@@ -124,6 +153,8 @@ exports.update = async (req, res) => {
             if (req.body.type) doc.type = req.body.type;
             if (req.body.version) doc.version = req.body.version;
             if (req.body.cpu) doc.cpu = req.body.cpu;
+
+
 
             await doc.save((err) => {
                 if (err) {
@@ -181,13 +212,14 @@ exports.getAll = async (req, res) => {
 
 
 exports.delete = async (req, res) => {
-    Node.findByIdAndDelete(req.params.id, (err) => {
+    Node.findByIdAndDelete(req.params.id, async (err) => {
         if (err) {
             return res.status(400).json({
                 status: 'Error',
                 message: "Database error"
             })
         } else {
+            await NodeData.findOneAndDelete({ node: req.params.id })
             return res.status(200).json({
                 status: "Succces",
                 message: 'Node data Deleted'
@@ -197,17 +229,20 @@ exports.delete = async (req, res) => {
 }
 
 exports.deleteAll = async (req, res) => {
-    Node.deleteMany({}, (err) => {
+    Node.deleteMany({}, async (err) => {
         if (err) {
             return res.status(400).json({
                 status: 'Error',
                 message: "Database error"
             })
         } else {
+            await NodeData.deleteMany({});
+
             return res.status(200).json({
                 status: 'success',
                 message: 'Cleared nodes datasets'
             })
         }
     })
+
 }

@@ -1,4 +1,7 @@
 export const ignoredActions = [
+  "bootstrap/fulfilled",
+  "bootstrap/rejected",
+
   "auth/login/fulfilled",
   "auth/login/rejected",
   "auth/check/fulfilled",
@@ -52,4 +55,18 @@ export const ignoredActions = [
   "error/remove/all/rejected",
   "error/create/many/fulfilled",
   "error/create/many/rejected",
+
+  "alarm/getAll/fulfilled",
+  "alarm/getAll/rejected",
+
+  "data/getNodes/fulfilled",
+  "data/getNodes/rejected",
+
+  "data/getInterfaces/fulfilled",
+  "data/getInterfaces/rejected",
+
+  "settings/get/fulfilled",
+  "settings/get/rejected",
+  "settings/set/fulfilled",
+  "settings/set/rejected",
 ];

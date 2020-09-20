@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/layout/Navbar";
+import JavascriptTimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en";
 
 import Footer from "./components/layout/Footer";
 import Login from "./components/forms/Login";
@@ -9,6 +11,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { isLoggedInSelector, checkToken } from "./redux/slices/authSlice";
 import Usermenu from "./components/layout/Usermenu";
 import AlertPanel from "./components/layout/Alert/AlertPanel";
+import { getSettings } from "./redux/slices/settingsSlice";
+import { bootstrap } from "./redux/slices/authSlice";
 
 function App() {
   const [activeMenu, setActiveMenu] = useState({
@@ -49,7 +53,10 @@ function App() {
   const token = localStorage.getItem("jwt");
   const dispatch = useDispatch();
   useEffect(() => {
+    JavascriptTimeAgo.addLocale(en);
+    dispatch(bootstrap());
     dispatch(checkToken(token));
+    dispatch(getSettings(token));
   }, [token, dispatch]);
 
   useEffect(() => {

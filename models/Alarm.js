@@ -8,9 +8,9 @@ const alarmSchema = new Schema(
             type: String,
             required: true,
         },
-        message: {
-            type: String,
-            required: true,
+        value: {
+            type: Number,
+            default: 70
         },
         node: {
             type: mongoose.Schema.Types.ObjectId,

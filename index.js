@@ -16,6 +16,7 @@ app.get("/", (req, res) => {
   res.status(200).json({ msg: "hello react?" })
 });
 
+app.use("/api", require("./routes/bootstrap"));
 app.use("/api/users", require("./routes/user_router"));
 app.use("/api/f5", require("./routes/f5_router"));
 app.use("/api/interface", require("./routes/interface_router"))

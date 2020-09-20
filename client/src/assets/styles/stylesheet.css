@@ -1014,6 +1014,55 @@ div.errors-page div.errors-view div.error-card button.icon-btn {
   border-top-left-radius: 0;
 }
 
+div.alarms-page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.alarms-page div.charts-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: white;
+  height: 70vh;
+  padding: 20px 10px;
+  -ms-flex-item-align: baseline;
+      align-self: baseline;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+div.alarms-page div.charts-container h3 {
+  text-align: center;
+  margin: 12px;
+}
+
+div.alarms-page div.alarms-view {
+  position: relative;
+  height: 70vh;
+  overflow-y: auto;
+  width: 570px;
+  background: #ededed;
+  padding: 20px 10px;
+  border-radius: 15px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
 .settings-page {
   display: -webkit-box;
   display: -ms-flexbox;

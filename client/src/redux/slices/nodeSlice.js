@@ -68,7 +68,14 @@ export const deleteAll = createAsyncThunk(
 const nodeSlice = createSlice({
   name: "node",
   initialState,
-  reducers: () => {},
+  reducers: {
+    select(state, action) {
+      state.selected = action.payload;
+    },
+    unselect(state) {
+      state.selected = null;
+    },
+  },
   extraReducers: {
     [getAll.pending]: (state) => {
       state.status = "loading";

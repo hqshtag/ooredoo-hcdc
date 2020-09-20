@@ -1,5 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { user_login, check_token, change_password } from "../../api/users";
+import {
+  user_login,
+  check_token,
+  change_password,
+  bootstrap as start,
+} from "../../api/users";
+
+export const bootstrap = createAsyncThunk("bootstrap", async () => {
+  return await start();
+});
 
 export const login = createAsyncThunk(
   "auth/login",

@@ -1,6 +1,5 @@
 import React from "react";
 import { ReactComponent as Remove } from "../../../../assets/icons/close.svg";
-import { remove } from "../../../../redux/slices/errorSlice";
 
 const ErrorCard = ({ error, remove, admin = false }) => {
   const { _id, node, interface: inter, type, code } = error;

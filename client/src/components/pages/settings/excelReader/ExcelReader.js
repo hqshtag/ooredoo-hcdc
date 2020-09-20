@@ -88,6 +88,7 @@ const ExcelReader = ({ label, id, type, createMany, deleteAll }) => {
     dispatch(createMany({ token, data: parser.parseMany(data.data, type) }))
       .then(unwrapResult)
       .then(() => {
+        //dispatch()
         reset();
       });
   };

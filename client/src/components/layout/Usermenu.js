@@ -9,7 +9,7 @@ const Usermenu = ({ menu, handleMenuNavigation }) => {
   const { username, role } = currentUser;
 
   let accessRights = role === "admin" ? "Super Admin" : "Admin";
-
+  console.log(menu);
   return (
     <div className="user-menu">
       <UserMenuBtn

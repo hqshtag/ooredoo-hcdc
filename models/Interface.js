@@ -23,6 +23,10 @@ const interfaceSchema = new Schema(
         BW: Number,
         input_size: Number,
         output_size: Number,
+        usage: {
+            type: Number,
+            default: 0
+        },
 
     },
     {

@@ -6,7 +6,7 @@ export default class Parser {
       type: node.Type.trim(),
       version: node.version.trim(),
       serial: node["Serial-nbr"].trim(),
-      //cpu: node.cpu.trim(),
+      cpu: parseInt(node.cpu.trim()),
     };
   };
   parseInterface = (i) => {

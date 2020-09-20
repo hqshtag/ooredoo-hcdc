@@ -38,7 +38,6 @@ const ErrorsView = ({ remove }) => {
           );
         })
       : null;
-  console.log(errors);
   return (
     <div className="errors-view">
       <Search

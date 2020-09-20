@@ -1,4 +1,5 @@
 const Alarm = require("../models/Alarm");
+const Settings = require("../models/Settings");
 
 
 
@@ -8,9 +9,9 @@ const Alarm = require("../models/Alarm");
 
 
 exports.create = async (req, res) => {
-    const { type, message, node, interface, status } = req.body;
+    const { type, value, node, interface, status } = req.body;
     let newAlarm = new Alarm({
-        type, message, node, interface, status
+        type, value, node, interface, status
     });
     await newAlarm.save((err) => {
         if (err) {
@@ -95,4 +96,42 @@ exports.deleteAll = async (req, res) => {
             })
         }
     })
+}
+
+
+
+exports.create_cpu_overclock_alarm = (nodeID, cpu) => {
+    try {
+        Settings.findOne({}, async (err, res) => {
+            if (err) throw err;
+            else {
+                const { oc } = res;
+
+                if (cpu >= oc) {
+                    let newAlarm = new Alarm({ type: "CPU-OC", node: nodeID, value: cpu })
+                    await newAlarm.save();
+                }
+            }
+        });
+    } catch (err) {
+        return false;
+    }
+}
+
+
+exports.create_bw_overload_alarm = (interfaceID, usage) => {
+    try {
+        Settings.findOne({}, async (err, res) => {
+            if (err) throw err;
+            else {
+                const { ol } = res;
+                if (usage >= ol) {
+                    let newAlarm = new Alarm({ type: "BANDWIDTH-OL", interface: interfaceID, value: usage })
+                    await newAlarm.save();
+                }
+            }
+        });
+    } catch (err) {
+        return false;
+    }
 }

@@ -5,6 +5,7 @@ import { tokenSelector } from "../../../redux/slices/authSlice";
 import NodesView from "./partials/NodesView";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { createInfo, createWarning } from "../../../redux/slices/alertSlice";
+import { getNodesData } from "../../../redux/slices/dataSlice";
 
 const Nodes = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,11 @@ const Nodes = () => {
   };
 
   useEffect(() => {
-    dispatch(getAll(token));
+    dispatch(getAll(token))
+      .then(unwrapResult)
+      .then(() => {
+        dispatch(getNodesData(token));
+      });
   }, [dispatch, token]);
 
   return (

@@ -1,7 +1,12 @@
 const router = require("express").Router();
 const controller = require("../controllers/usersController");
+
 const { verifyUserExistance, verifyUniqueUsername } = require("../middlewares/user_validator");
 const { verifyToken, verifySuperAdmin } = require("../middlewares/token_validator");
+
+//first get request to create sudo if there's none
+//basicly we check users table if it's empty we create admin:admin
+
 
 router.get("/", verifySuperAdmin, controller.getAllUsers);
 router.post("/login", verifyUserExistance, controller.login);
