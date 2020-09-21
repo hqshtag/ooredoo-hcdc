@@ -3,8 +3,8 @@ import { settingsServices } from "../../api/services";
 const { createSlice, createAsyncThunk } = require("@reduxjs/toolkit");
 
 const initialState = {
-  OC: 70,
-  OL: 70,
+  oc: 70,
+  ol: 70,
   version: "0.0.1-alpha",
   status: "idle",
   errors: null,
@@ -44,7 +44,10 @@ const settingsSlice = createSlice({
       //console.log(action);
       let data = action.payload.data.payload;
       state.status = "success";
-      state = { ...state, data };
+      const { oc, ol } = data;
+      state.oc = oc;
+      state.ol = ol;
+      //state = { ...state, data };
     },
     [getSettings.rejected]: (state, action) => {
       //console.log(action);

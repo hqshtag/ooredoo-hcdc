@@ -26,7 +26,7 @@ const ErrorsView = ({ remove }) => {
         )
       : [];
   const cards =
-    filteredErrors !== []
+    filteredErrors.length > 0
       ? filteredErrors.map((e, k) => {
           return (
             <ErrorCard
@@ -38,6 +38,7 @@ const ErrorsView = ({ remove }) => {
           );
         })
       : null;
+
   return (
     <div className="errors-view">
       <Search

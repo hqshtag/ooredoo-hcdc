@@ -2,9 +2,14 @@ import React, { useState, useEffect } from "react";
 import { ReactComponent as Remove } from "../../../../assets/icons/close.svg";
 import { ReactComponent as Edit } from "../../../../assets/icons/edit.svg";
 import { ReactComponent as Check } from "../../../../assets/icons/check.svg";
+import NodeCharts from "./NodeCharts";
 
 const NodeCard = ({ node, handleRemove, handleUpdate, admin = false }) => {
   const [manage, setManage] = useState(false);
+  const [overflow, setOverflow] = useState(false);
+  const toggleOverflow = () => {
+    setOverflow((p) => !p);
+  };
   const [fields, setFields] = useState({
     name: "",
     ip: "",
@@ -35,77 +40,91 @@ const NodeCard = ({ node, handleRemove, handleUpdate, admin = false }) => {
     setManage((p) => !p);
   };
   return (
-    <div className="node-card">
-      <Field
-        label="Node name"
-        className="name-field reverse"
-        name="name"
-        value={fields.name}
-        manage={manage}
-        onChange={handleChange}
-      />
-      <Field
-        label="IP"
-        name="ip"
-        className="ip-field"
-        value={fields.ip}
-        manage={manage}
-        onChange={handleChange}
-      />
-      <Field
-        label="Type"
-        name="type"
-        className="type-field reverse"
-        value={fields.type}
-        manage={manage}
-        onChange={handleChange}
-      />
-      <Field
-        label="Version"
-        name="version"
-        className="version-field"
-        value={fields.version}
-        manage={manage}
-        onChange={handleChange}
-      />
-      <Field
-        label="Serial Number"
-        name="Serial-nbr"
-        className="serial-field reverse"
-        value={fields.serial}
-        manage={manage}
-        onChange={handleChange}
-      />
-      {admin && (
-        <div className="buttons">
-          <button
-            className={manage ? " icon-btn green" : "icon-btn blue"}
-            onClick={
-              manage
-                ? () => {
-                    handleUpdate(node._id, fields);
-                    toggleManage();
-                  }
-                : toggleManage
-            }
-          >
-            {manage ? <Check /> : <Edit />}
-          </button>
-          {manage ? (
+    <>
+      <div
+        className="node-card"
+        onClick={
+          !manage
+            ? () => {
+                toggleOverflow();
+              }
+            : () => {}
+        }
+      >
+        <Field
+          label="Node name"
+          className="name-field reverse"
+          name="name"
+          value={fields.name}
+          manage={manage}
+          onChange={handleChange}
+        />
+        <Field
+          label="IP"
+          name="ip"
+          className="ip-field"
+          value={fields.ip}
+          manage={manage}
+          onChange={handleChange}
+        />
+        <Field
+          label="Type"
+          name="type"
+          className="type-field reverse"
+          value={fields.type}
+          manage={manage}
+          onChange={handleChange}
+        />
+        <Field
+          label="Version"
+          name="version"
+          className="version-field"
+          value={fields.version}
+          manage={manage}
+          onChange={handleChange}
+        />
+        <Field
+          label="Serial Number"
+          name="Serial-nbr"
+          className="serial-field reverse"
+          value={fields.serial}
+          manage={manage}
+          onChange={handleChange}
+        />
+        {admin && (
+          <div className="buttons">
             <button
-              className="icon-btn reverse"
-              onClick={() => {
-                // console.log(node);
-                handleRemove(node._id);
-                toggleManage();
-              }}
+              className={manage ? " icon-btn green" : "icon-btn blue"}
+              onClick={
+                manage
+                  ? () => {
+                      handleUpdate(node._id, fields);
+                      toggleManage();
+                    }
+                  : toggleManage
+              }
             >
-              <Remove />
+              {manage ? <Check /> : <Edit />}
             </button>
-          ) : null}
-        </div>
-      )}
-    </div>
+            {manage ? (
+              <button
+                className="icon-btn reverse"
+                onClick={() => {
+                  // console.log(node);
+                  handleRemove(node._id);
+                  toggleManage();
+                }}
+              >
+                <Remove />
+              </button>
+            ) : null}
+          </div>
+        )}
+      </div>
+      <div className={`node-overflow ${overflow ? "active" : ""}`}>
+        <NodeCharts node={node} />
+      </div>
+    </>
   );
 };
 

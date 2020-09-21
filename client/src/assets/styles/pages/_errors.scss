@@ -22,10 +22,9 @@ div.errors-page {
       position: relative;
       display: flex;
       justify-content: space-around;
-      width: 93%;
-      min-height: 60px;
-      max-height: 72px;
-      background-color: #df4950;
+      width: 700px;
+      height: 72px;
+      background-color: darken($ored, 19);
       margin: 10px;
       border-radius: 10px;
       transition: background-color 200ms cubic-bezier(0.39, 0.575, 0.565, 1);

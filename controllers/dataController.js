@@ -12,7 +12,10 @@ exports.getAllNodeData = async (req, res) => {
                 payload: docs
             })
         } else {
-            res.status(204).json({ status: 'success', message: "empty dataset" })
+            res.status(404).json({
+                status: "Error",
+                message: "No data"
+            })
         }
     })//.populate("node")
 }
@@ -26,7 +29,10 @@ exports.getAllInterfaceData = async (req, res) => {
                 payload: docs
             })
         } else {
-            res.status(204).json({ status: 'success', message: "empty dataset" })
+            res.status(404).json({
+                status: "Error",
+                message: "No data"
+            })
         }
     })
 }

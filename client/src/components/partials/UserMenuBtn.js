@@ -6,7 +6,13 @@ import { ReactComponent as Settings } from "../../assets/icons/edit.svg";
 import { ReactComponent as LoadBalancer } from "../../assets/icons/loadbalancer.svg";
 import { ReactComponent as Alarms } from "../../assets/icons/alarm.svg";
 
-const UserMenuBtn = ({ label, active = false, dataKey, onClick }) => {
+const UserMenuBtn = ({
+  label,
+  active = false,
+  dataKey,
+  onClick,
+  number = -1,
+}) => {
   return (
     <button
       className={`user-menu-btn ${active && "active"}`}
@@ -20,6 +26,7 @@ const UserMenuBtn = ({ label, active = false, dataKey, onClick }) => {
       {dataKey === "settings" && <Settings />}
       {dataKey === "alarms" && <Alarms />}
       {label}
+      {number > 0 && <span className="number">{number}</span>}
     </button>
   );
 };

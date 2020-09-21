@@ -67,6 +67,8 @@ const alarmSlice = createSlice({
     },
     [getAll.rejected]: (state, action) => {
       //console.log(action);
+      state.list = [];
+
       state.status = "error";
     },
     [create.pending]: (state) => {

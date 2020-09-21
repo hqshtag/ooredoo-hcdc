@@ -237,6 +237,7 @@ div.user-menu h5 {
 }
 
 div.user-menu .user-menu-btn {
+  position: relative;
   cursor: pointer;
   width: 100%;
   height: 60px;
@@ -264,6 +265,25 @@ div.user-menu .user-menu-btn svg {
   width: 27px;
   padding: 3px;
   margin-right: 20px;
+}
+
+div.user-menu .user-menu-btn span.number {
+  pointer-events: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  right: 33px;
+  font-size: 14px;
+  height: 33px;
+  width: 33px;
+  border-radius: 50%;
 }
 
 div.user-menu .user-menu-btn.active {
@@ -552,6 +572,7 @@ div.nodes-page .nodes-view h4 {
 }
 
 div.nodes-page .nodes-view .node-card {
+  cursor: pointer;
   position: relative;
   background: #ededed;
   width: 920px;
@@ -625,6 +646,43 @@ div.nodes-page .nodes-view .node-card .buttons button {
   margin: 0px 2px;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
+}
+
+div.nodes-page .nodes-view .node-card + .node-overflow {
+  visibility: hidden;
+  opacity: 0.2;
+  width: 920px;
+  height: 20px;
+  margin: -10px 5px 5px 5px;
+  border-bottom-left-radius: 7px;
+  border-bottom-right-radius: 7px;
+  -webkit-transition: all 240ms ease-in;
+  transition: all 240ms ease-in;
+}
+
+div.nodes-page .nodes-view .node-card + .node-overflow .charts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 20px;
+  padding: 5px 0px;
+  background-color: white;
+  opacity: 0;
+  -webkit-transition: all 360ms ease-in;
+  transition: all 360ms ease-in;
+}
+
+div.nodes-page .nodes-view .node-card + .node-overflow.active {
+  visibility: visible;
+  height: 300px;
+  background-color: #535353;
+  opacity: 1;
+}
+
+div.nodes-page .nodes-view .node-card + .node-overflow.active .charts {
+  opacity: 1;
 }
 
 .interfaces-page {
@@ -959,10 +1017,9 @@ div.errors-page div.errors-view div.error-card {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  width: 93%;
-  min-height: 60px;
-  max-height: 72px;
-  background-color: #df4950;
+  width: 700px;
+  height: 72px;
+  background-color: #ca0b0b;
   margin: 10px;
   border-radius: 10px;
   -webkit-transition: background-color 200ms cubic-bezier(0.39, 0.575, 0.565, 1);
@@ -1023,44 +1080,92 @@ div.alarms-page {
           align-items: center;
 }
 
-div.alarms-page div.charts-container {
+div.alarms-page div.alarms-view {
+  position: relative;
+  height: 70vh;
+  overflow-y: auto;
+  width: 900px;
+  background: #ededed;
+  padding: 20px 10px;
+  border-radius: 15px;
+}
+
+div.alarms-page div.alarms-view h4 {
+  position: absolute;
+  top: 50%;
+  right: 42%;
+  color: #535353;
+}
+
+div.alarms-page div.alarms-view .alarm-card {
+  margin: 10px;
+  background-color: #535353;
+  color: white;
+  border-radius: 7px;
+  padding: 2px 6px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  height: 42px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div.alarms-page div.alarms-view .alarm-card h3 {
+  min-width: 200px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+div.alarms-page div.alarms-view .alarm-card p {
+  text-align: center;
+  min-width: 420px;
+  font-size: 17px;
+}
+
+div.alarms-page div.alarms-view .alarm-card p em {
+  color: #ff4444;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+div.alarms-page div.alarms-view .alarm-card p span {
+  font-size: 18px;
+  background: white;
+  color: #535353;
+  padding: 2px 6px;
+  border-radius: 9px;
+}
+
+div.alarms-page div.alarms-view .alarm-card span {
+  font-size: 12px;
+  color: #c5c5c5;
+}
+
+div.alarms-page div.alarms-view .alarm-card .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: white;
-  height: 70vh;
-  padding: 20px 10px;
-  -ms-flex-item-align: baseline;
-      align-self: baseline;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  width: 0;
+  opacity: 0;
+  -webkit-transition: all 420ms cubic-bezier(0.47, 0, 0.745, 0.715);
+  transition: all 420ms cubic-bezier(0.47, 0, 0.745, 0.715);
 }
 
-div.alarms-page div.charts-container h3 {
-  text-align: center;
-  margin: 12px;
-}
-
-div.alarms-page div.alarms-view {
-  position: relative;
-  height: 70vh;
-  overflow-y: auto;
-  width: 570px;
-  background: #ededed;
-  padding: 20px 10px;
-  border-radius: 15px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+div.alarms-page div.alarms-view .alarm-card .buttons.active {
+  opacity: 1;
+  width: 40px;
+  height: 42px;
 }
 
 .settings-page {
@@ -1070,9 +1175,10 @@ div.alarms-page div.alarms-view {
 }
 
 .settings-page .data-management {
-  width: 500px;
+  width: 660px;
   height: 30vh;
-  background: white;
+  background: #eaeaea;
+  color: #535353;
   margin: 0px 10px 10px;
   border-radius: 10px;
   display: -webkit-box;
@@ -1090,11 +1196,17 @@ div.alarms-page div.alarms-view {
           justify-content: center;
 }
 
+.settings-page .data-management > h3 {
+  color: #414141;
+  font-weight: 500;
+  font-size: 24px;
+}
+
 .settings-page .data-management div.imports {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 420px;
+  width: 600px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1113,11 +1225,11 @@ div.alarms-page div.alarms-view {
       -ms-flex-align: center;
           align-items: center;
   margin: 10px;
-  width: 150px;
-  height: 100px;
-  background: white;
+  min-width: 120px;
+  min-height: 100px;
+  background: whitesmoke;
   padding: 5px;
-  border: 2px solid #535353;
+  border: 2px solid #ccc;
   border-radius: 5px;
 }
 
@@ -1129,7 +1241,7 @@ div.alarms-page div.alarms-view {
   margin-top: 20px;
   background: #2553b1;
   color: white;
-  width: 100px;
+  width: 120px;
   text-align: center;
   padding: 1px 2px;
   border-radius: 5px;
@@ -1173,19 +1285,19 @@ div.alarms-page div.alarms-view {
 
 .settings-page .data-management div.imports div.excel-reader button.clear-btn {
   position: absolute;
-  padding: 1px 5px;
   font-size: 14px;
   border-radius: 5px;
   height: 20px;
-  width: 110px;
-  bottom: 5px;
+  width: 120px;
+  bottom: 10px;
 }
 
 .settings-page .user-settings {
-  width: 500px;
-  height: 27vh;
+  justify-self: center;
+  width: 660px;
+  height: 24vh;
   background: white;
-  margin: 0px 10px;
+  margin: 0px auto;
   border-radius: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1208,6 +1320,74 @@ div.alarms-page div.alarms-view {
 
 .settings-page .user-settings input {
   margin: 5px;
+}
+
+.settings-page .alarm-settings {
+  width: 660px;
+  height: 90px;
+  background: #535353;
+  margin: 5px 10px 0px;
+  border-radius: 10px;
+  color: white;
+}
+
+.settings-page .alarm-settings h4 {
+  margin: 3px 7px;
+  font-weight: 500;
+}
+
+.settings-page .alarm-settings div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: white;
+  color: #535353;
+  margin: 0px 20px;
+  border-radius: 7px;
+}
+
+.settings-page .alarm-settings div label {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 50px;
+  font-size: 14px;
+}
+
+.settings-page .alarm-settings div label input {
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  height: 30px;
+  width: 90px;
+  padding: 1px 3px;
+  background-color: #535353;
+  color: white;
+  text-align: center;
+}
+
+.settings-page .alarm-settings div label input:focus {
+  outline: none;
+}
+
+.settings-page .alarm-settings div label span.percent {
+  position: absolute;
+  right: 24px;
+  color: white;
+  font-size: 14px;
 }
 
 form.user-login {

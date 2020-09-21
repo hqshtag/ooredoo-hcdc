@@ -73,7 +73,7 @@ settingsServices.removeAll = undefined;
 settingsServices.remove = undefined;
 settingsServices.create = undefined;
 settingsServices.create_many = undefined;
-settingsServices.update = async (data, token) => {
+settingsServices.update = async (token, data) => {
   let url = `${settingsServices.baseurl}`;
   const config = {
     headers: { authorization: `Bearer ${token}` },

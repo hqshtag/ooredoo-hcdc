@@ -1,9 +1,16 @@
 .settings-page {
   display: flex;
   .data-management {
-    width: 500px;
+    width: 660px;
     height: 30vh;
-    background: white;
+    background: $mainGray;
+    > h3 {
+      color: darken($dark, 7);
+      font-weight: 500;
+      font-size: 24px;
+    }
+    color: $dark;
+
     margin: 0px 10px 10px;
     border-radius: 10px;
 
@@ -13,7 +20,7 @@
     justify-content: center;
     div.imports {
       display: flex;
-      width: 420px;
+      width: 600px;
       //align-items: center;
       justify-content: center;
       // background: red;
@@ -23,11 +30,11 @@
         flex-direction: column;
         align-items: center;
         margin: 10px;
-        width: 150px;
-        height: 100px;
-        background: white;
+        min-width: 120px;
+        min-height: 100px;
+        background: whitesmoke;
         padding: 5px;
-        border: 2px solid $dark;
+        border: 2px solid #ccc;
         border-radius: 5px;
         input[type="file"] {
           display: none;
@@ -36,7 +43,7 @@
           margin-top: 20px;
           background: $blue;
           color: white;
-          width: 100px;
+          width: 120px;
           text-align: center;
           padding: 1px 2px;
           border-radius: 5px;
@@ -50,8 +57,8 @@
           }
         }
         span.file-name {
+          //max-width: 93px;
           margin-top: 18px;
-
           font-size: 12px;
         }
         div.buttons {
@@ -71,22 +78,23 @@
         }
         button.clear-btn {
           position: absolute;
-          padding: 1px 5px;
+          // padding: 1px 5px;
 
           font-size: 14px;
           border-radius: 5px;
           height: 20px;
-          width: 110px;
-          bottom: 5px;
+          width: 120px;
+          bottom: 10px;
         }
       }
     }
   }
   .user-settings {
-    width: 500px;
-    height: 27vh;
+    justify-self: center;
+    width: 660px;
+    height: 24vh;
     background: white;
-    margin: 0px 10px;
+    margin: 0px auto;
     border-radius: 10px;
 
     display: flex;
@@ -98,6 +106,57 @@
     }
     input {
       margin: 5px;
+    }
+  }
+
+  .alarm-settings {
+    width: 660px;
+    height: 90px;
+    background: $dark;
+    margin: 5px 10px 0px;
+    border-radius: 10px;
+    color: white;
+    h4 {
+      margin: 3px 7px;
+      font-weight: 500;
+    }
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: white;
+      color: $dark;
+      margin: 0px 20px;
+      border-radius: 7px;
+      label {
+        position: relative;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 10px 50px;
+        font-size: 14px;
+        input {
+          font-size: 16px;
+          border-radius: 6px;
+          border: none;
+          height: 30px;
+          width: 90px;
+          padding: 1px 3px;
+          background-color: $dark;
+          color: white;
+          text-align: center;
+          &:focus {
+            outline: none;
+          }
+        }
+        span.percent {
+          position: absolute;
+          right: 24px;
+          color: white;
+          font-size: 14px;
+        }
+      }
     }
   }
 }

@@ -112,8 +112,8 @@ exports.getAll = async (req, res) => {
                 message: "Database error"
             })
         } else if (!docs || docs.length == 0) {
-            return res.status(200).json({
-                status: "Success",
+            return res.status(404).json({
+                status: "Error",
                 message: "No data"
             })
         } else {

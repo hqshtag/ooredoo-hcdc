@@ -81,6 +81,7 @@ const errorSlice = createSlice({
     },
     [getAll.rejected]: (state, action) => {
       //console.log(action);
+      state.list = [];
       state.status = "error";
     },
     [remove.pending]: (state) => {

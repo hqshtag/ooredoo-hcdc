@@ -4,7 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const interfaceServices = new Services("interface");
 
 const initialState = {
-  list: null,
+  list: [],
   status: "idle",
   selected: null,
   errors: null,
@@ -88,6 +88,7 @@ const interfaceSlice = createSlice({
     },
     [getAll.rejected]: (state, action) => {
       //console.log(action);
+      state.list = [];
       state.status = "error";
     },
     [remove.pending]: (state) => {

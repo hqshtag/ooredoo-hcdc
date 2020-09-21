@@ -52,8 +52,8 @@ exports.getAll = async (req, res) => {
                 message: "Database error"
             })
         } else if (!docs || docs.length == 0) {
-            return res.status(200).json({
-                status: "Success",
+            return res.status(404).json({
+                status: "Error",
                 message: "No data"
             })
         } else {
@@ -114,7 +114,7 @@ exports.create_cpu_overclock_alarm = (nodeID, cpu) => {
             }
         });
     } catch (err) {
-        return false;
+        throw err;
     }
 }
 
@@ -132,6 +132,6 @@ exports.create_bw_overload_alarm = (interfaceID, usage) => {
             }
         });
     } catch (err) {
-        return false;
+        throw (err)
     }
 }

@@ -11,9 +11,10 @@ import {
   createSuccess,
   createWarning,
 } from "../../../../redux/slices/alertSlice";
+import { getAll as getAllAlarms } from "../../../../redux/slices/alarmSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
-const ExcelReader = ({ label, id, type, createMany, deleteAll }) => {
+const ExcelReader = ({ label, id, type, createMany, deleteAll, getAll }) => {
   const token = useSelector(tokenSelector);
   const dispatch = useDispatch();
   const parser = new Parser();
@@ -89,6 +90,10 @@ const ExcelReader = ({ label, id, type, createMany, deleteAll }) => {
       .then(unwrapResult)
       .then(() => {
         //dispatch()
+        //update added data & check for any detected alarms
+        dispatch(getAll(token));
+        dispatch(getAllAlarms(token));
+
         reset();
       });
   };
@@ -96,12 +101,13 @@ const ExcelReader = ({ label, id, type, createMany, deleteAll }) => {
   const deleteMany = () => {
     dispatch(createWarning("Deleting all " + type + "s"));
     dispatch(deleteAll(token)).then(() => {
+      dispatch(getAll(token));
       deleteStateOff();
     });
   };
   return (
     <div className="excel-reader">
-      <h4>{label}:</h4>
+      <h4>{label}</h4>
       {data.data == null && (
         <label className="custom-upload" htmlFor={id}>
           Import

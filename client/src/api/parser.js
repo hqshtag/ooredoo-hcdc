@@ -38,6 +38,14 @@ export default class Parser {
       node2_availability: f5.Node2_Availability.trim(),
     };
   };
+  parseError = (err) => {
+    return {
+      node: err.SwitchName.trim(),
+      interface: err.interface.trim(),
+      code: parseInt(err["Total-Error"]),
+      type: ErrorTypes[Math.floor(Math.random() * ErrorTypes.length)],
+    };
+  };
   parseMany = (data, type) => {
     switch (type) {
       case "interface":
@@ -46,8 +54,12 @@ export default class Parser {
         return data.map((e) => this.parseNode(e));
       case "f5":
         return data.map((e) => this.parseLoadbalancer(e));
+      case "error":
+        return data.map((e) => this.parseError(e));
       default:
         break;
     }
   };
 }
+
+const ErrorTypes = ["Align-Err", "FCS-Err", "Xmit-Err", "RCV-Err"];

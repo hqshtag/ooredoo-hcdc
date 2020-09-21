@@ -90,9 +90,7 @@ exports.createMany = async (req, res) => {
                  } */
 
 
-                if (!create_cpu_overclock_alarm(doc._id, cpu)) {
-                    res.status(400).json({ status: 'Error', message: 'database error' })
-                };
+                create_cpu_overclock_alarm(doc._id, cpu);
                 let data = await NodeData.findOne({ node: doc._id });
                 if (!data || data.length === 0) {
                     data = new NodeData();
@@ -195,8 +193,8 @@ exports.getAll = async (req, res) => {
                 message: "Database error"
             })
         } else if (!docs || docs.length == 0) {
-            return res.status(200).json({
-                status: "Success",
+            return res.status(404).json({
+                status: "Error",
                 message: "No data"
             })
         } else {

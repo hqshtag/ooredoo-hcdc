@@ -12,6 +12,7 @@ div.user-menu {
   }
 
   .user-menu-btn {
+    position: relative;
     cursor: pointer;
     width: 100%;
     height: 60px;
@@ -33,6 +34,21 @@ div.user-menu {
       width: 27px;
       padding: 3px;
       margin-right: 20px;
+    }
+
+    span.number {
+      pointer-events: none;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      right: 33px;
+      font-size: 14px;
+      height: 33px;
+      width: 33px;
+      border-radius: 50%;
+      //      background-color: darken($dark, 3);
     }
     &.active {
       background: lighten(#e21818, 5);

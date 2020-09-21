@@ -5,7 +5,6 @@ import { deleteAll, getAll, remove } from "../../../redux/slices/alarmSlice";
 import { createWarning } from "../../../redux/slices/alertSlice";
 import { tokenSelector } from "../../../redux/slices/authSlice";
 import AlarmsView from "./partials/AlarmsView";
-import ChartsContainer from "./partials/ChartsContainer";
 
 const Alarms = () => {
   const dispatch = useDispatch();
@@ -35,8 +34,7 @@ const Alarms = () => {
 
   return (
     <div className="alarms-page">
-      <AlarmsView deleteAll={handleClearAlarms} />
-      <ChartsContainer />
+      <AlarmsView deleteAll={handleClearAlarms} remove={handleRemove} />
     </div>
   );
 };

@@ -3,6 +3,7 @@ div.nodes-page {
     input.search-field {
       margin-left: 19%;
     }
+
     position: relative;
     height: 70vh;
     // min-height: 800px;
@@ -19,6 +20,7 @@ div.nodes-page {
       color: $dark;
     }
     .node-card {
+      cursor: pointer;
       position: relative;
       background: $edGray;
       width: 920px;
@@ -72,6 +74,37 @@ div.nodes-page {
           margin: 0px 2px;
           border-top-right-radius: 0;
           border-top-left-radius: 0;
+        }
+      }
+      + .node-overflow {
+        visibility: hidden;
+        opacity: 0.2;
+        width: 920px;
+        height: 20px;
+        margin: -10px 5px 5px 5px;
+        border-bottom-left-radius: 7px;
+        border-bottom-right-radius: 7px;
+
+        transition: all 240ms ease-in;
+        .charts {
+          display: flex;
+          justify-content: space-around;
+          margin: 20px;
+          padding: 5px 0px;
+          background-color: white;
+          opacity: 0;
+          transition: all 360ms ease-in;
+        }
+        &.active {
+          visibility: visible;
+          height: 300px;
+
+          background-color: $dark;
+          opacity: 1;
+
+          .charts {
+            opacity: 1;
+          }
         }
       }
     }

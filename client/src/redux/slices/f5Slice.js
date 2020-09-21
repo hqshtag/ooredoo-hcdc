@@ -4,7 +4,7 @@ import Services from "../../api/services";
 const f5Services = new Services("f5");
 
 const initialState = {
-  list: null,
+  list: [],
   status: "idle",
   selected: null,
   errors: null,
@@ -52,13 +52,14 @@ const f5Slice = createSlice({
       state.status = "loading";
     },
     [getAll.fulfilled]: (state, action) => {
-      // console.log(action);
+      console.log(action);
       let data = action.payload.data.payload;
       state.status = "success";
       state.list = data;
     },
     [getAll.rejected]: (state, action) => {
       //console.log(action);
+      state.list = [];
       state.status = "error";
     },
   },
