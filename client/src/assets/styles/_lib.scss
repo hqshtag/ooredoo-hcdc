@@ -27,7 +27,10 @@
     margin: 20px;
   }
   &.lime {
-    background-color: $lime;
+    background-color: $blue;
+    &:hover {
+      background-color: darken($blue, 5);
+    }
   }
 }
 

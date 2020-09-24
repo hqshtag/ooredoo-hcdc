@@ -30,7 +30,6 @@ const InterfaceCard = ({ data }) => {
       <div id="IP">
         <h3>{ip}</h3>
       </div>
-
       {/*  <table>
         <thead>
           <tr>

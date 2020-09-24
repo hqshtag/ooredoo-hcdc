@@ -39,12 +39,16 @@ export default class Parser {
     };
   };
   parseError = (err) => {
-    return {
-      node: err.SwitchName.trim(),
-      interface: err.interface.trim(),
-      code: parseInt(err["Total-Error"]),
-      type: ErrorTypes[Math.floor(Math.random() * ErrorTypes.length)],
-    };
+    let errorTypes = getErrorTypes(err);
+    if (errorTypes.length > 0) {
+      return {
+        node: err.SwitchName.trim(),
+        interface: err.interface.trim(),
+        code: parseInt(err["Total-Error"]),
+        type: errorTypes,
+        sys_date: err["Sys_date"], //ErrorTypes[Math.floor(Math.random() * ErrorTypes.length)],
+      };
+    }
   };
   parseMany = (data, type) => {
     switch (type) {
@@ -62,4 +66,25 @@ export default class Parser {
   };
 }
 
-const ErrorTypes = ["Align-Err", "FCS-Err", "Xmit-Err", "RCV-Err"];
+const checkErrorType = (err, type) => {
+  if (err[type] !== "0" && err[type] !== "--") {
+    return true;
+  }
+  return false;
+};
+
+const getErrorTypes = (err) => {
+  let res = ErrorTypes.filter((t) => {
+    return checkErrorType(err, t);
+  });
+  return res;
+};
+
+const ErrorTypes = [
+  "Align-Err",
+  "FCS-Err",
+  "Xmit-Err",
+  "RCV-Err",
+  "UderSize",
+  "OutDiscards",
+];

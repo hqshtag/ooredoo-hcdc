@@ -6,11 +6,7 @@ import { SheetJSFT } from "./types";
 import { useSelector, useDispatch } from "react-redux";
 import { tokenSelector } from "../../../../redux/slices/authSlice";
 import Parser from "../../../../api/parser";
-import {
-  createInfo,
-  createSuccess,
-  createWarning,
-} from "../../../../redux/slices/alertSlice";
+import { createInfo, createWarning } from "../../../../redux/slices/alertSlice";
 import { getAll as getAllAlarms } from "../../../../redux/slices/alarmSlice";
 import { unwrapResult } from "@reduxjs/toolkit";
 
@@ -76,7 +72,6 @@ const ExcelReader = ({ label, id, type, createMany, deleteAll, getAll }) => {
   }, [data.file]);
 
   const reset = () => {
-    console.log("reset");
     setData({
       file: null,
       fileName: "",

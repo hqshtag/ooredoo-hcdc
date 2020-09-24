@@ -18,7 +18,7 @@ const InterfaceValuesChart = ({ inter }) => {
   };
   return (
     <div>
-      <HorizontalBar data={data} width={420} />
+      <HorizontalBar data={data} width={360} height={150} />
     </div>
   );
 };

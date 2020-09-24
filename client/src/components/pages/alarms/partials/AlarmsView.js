@@ -24,6 +24,11 @@ const AlarmsView = ({ deleteAll, remove }) => {
     <div className="alarms-view">
       {cards}
       {!cards && <h4>No Alarms detected!</h4>}
+      {admin && (
+        <button className="btn delete-alarms" onClick={deleteAll}>
+          Clear All
+        </button>
+      )}
     </div>
   );
 };

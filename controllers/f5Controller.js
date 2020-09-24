@@ -43,8 +43,21 @@ exports.createMany = async (req, res) => {
     //console.log(data.length);
     const result = [];
     data.forEach(async e => {
-        f5 = new LoadBalancer(e);
-        result.push(await f5.save())
+        const { hostname, ip, virtual_server, destination, pool, member1, member2 } = e;
+        LoadBalancer.findOne({ hostname, ip, virtual_server, destination, pool, member1, member2 }, async (err, doc) => {
+            if (doc) {
+                if (e.vs_availability) doc.vs_availability = e.vs_availability;
+                if (e.mbr1_availability) doc.mbr1_availability = e.mbr1_availability;
+                if (e.node1_availability) doc.node1_availability = e.node1_availability;
+                if (e.mbr2_availability) doc.mbr2_availability = e.mbr2_availability;
+                if (e.node2_availability) doc.node2_availability = e.node2_availability;
+                result.push(await doc.save());
+            } else {
+                f5 = new LoadBalancer(e);
+                result.push(await f5.save())
+            }
+        })
+
     });
 
     //console.log(result);

@@ -14,11 +14,9 @@ const Settings = () => {
   return (
     <div className="settings-page">
       <div>
+        <UserSettings admin={admin} />
         {admin && <DataManagement />}
-        <div className="partial-1">
-          <UserSettings />
-          {admin && <AlarmSettings />}
-        </div>
+        {admin && <AlarmSettings />}
       </div>
 
       {admin && <UserManagement />}

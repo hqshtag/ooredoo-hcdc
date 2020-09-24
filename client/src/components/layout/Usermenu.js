@@ -21,7 +21,6 @@ const Usermenu = ({ menu, handleMenuNavigation }) => {
   const alarms = useSelector(alarmSelector);
 
   let accessRights = role === "admin" ? "Super Admin" : "Admin";
-  console.log(menu);
   return (
     <div className="user-menu">
       <UserMenuBtn

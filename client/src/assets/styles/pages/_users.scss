@@ -1,31 +1,17 @@
 div.users-management {
-  background: white;
+  background: $dark;
   padding: 5px;
   border-radius: 5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  form.add_user {
-    width: 300px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    input {
-      &:first-child {
-        margin-top: 30px;
-      }
-      margin: 5px;
-    }
-  }
+  // align-items: center;
+  height: 68vh;
 
   div.users-list {
-    background: #f3f2f2;
+    background: $dark;
     // border-radius: 12px;
-    width: 300px;
-    height: auto;
-    max-height: 27vh;
+    width: 312px;
+
+    max-height: 66vh;
     padding: 7px 10px;
     padding-top: 0;
     overflow-y: auto;
@@ -35,10 +21,12 @@ div.users-management {
     h3 {
       position: fixed;
       z-index: 13;
-      background: #f3f2f2;
+      background: $dark;
+      color: white;
       width: 289px;
       border-top-left-radius: 12px;
       height: 24px;
+      font-weight: 500;
 
       // padding: 10px 5px;
     }
@@ -63,8 +51,9 @@ div.users-management {
       // background: pink;
       transition: all 270ms ease-out;
       &:hover {
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19),
-          0 6px 6px rgba(0, 0, 0, 0.23);
+        transform: scale(1.02);
+        box-shadow: 0 10px 20px rgba(206, 206, 206, 0.19),
+          0 6px 6px rgba(253, 253, 253, 0.23);
       }
       .icon-btn {
         position: absolute;

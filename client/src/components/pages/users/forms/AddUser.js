@@ -53,6 +53,7 @@ const AddUser = () => {
 
   return (
     <form className="add_user">
+      <h4>Add user</h4>
       <input
         className="form-input medium"
         type="text"

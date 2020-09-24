@@ -1,6 +1,11 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { formatAMPM, formatDate, isToday } from "../../../../../utils";
+import {
+  formatAMPM,
+  formatAMPM_justhours,
+  formatDate,
+  isToday,
+} from "../../../../../utils";
 
 const InterfaceTimeChart = ({ inter, interfaceData }) => {
   const { input_size, output_size } = inter;
@@ -11,7 +16,7 @@ const InterfaceTimeChart = ({ inter, interfaceData }) => {
     if (isToday(t)) {
       return formatAMPM(t);
     } else {
-      return formatDate(t) + "@" + formatAMPM(t);
+      return formatDate(t) + " " + formatAMPM_justhours(t);
     }
   });
   const points = bw.map((e) => {

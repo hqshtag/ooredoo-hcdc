@@ -32,8 +32,17 @@ exports.createMany = async (req, res) => {
     //console.log(data.length);
     const result = [];
     data.forEach(async e => {
-        error = new Error(e);
-        result.push(await error.save())
+        const { SwitchName, interface, type } = e;
+        Error.findOne({ SwitchName, interface }, async (err, doc) => {
+            if (doc) {
+                if (type) doc.type = type;
+                result.push(await doc.save())
+            } else {
+                error = new Error(e);
+                result.push(await error.save())
+            }
+        })
+
     });
 
     //console.log(result);

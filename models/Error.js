@@ -17,9 +17,10 @@ const errorSchema = new Schema(
             required: true
         },
         type: {
-            type: String,
+            type: [],
             required: true,
-        }
+        },
+        sys_date: Date,
     },
     {
         timestamps: true,

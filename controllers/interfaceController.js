@@ -14,7 +14,8 @@ const bw_usage = (bw, x, y) => {
     //let deltaTime = 1800 //seconds or 30mintues
     const input = x * 100 // * 100 / bandwidth;
     const output = y * 100 // * 10000 / bandwidth; */
-    return 42;
+
+    return (x + y) / (bw * 1024) * 100;
 }
 
 
